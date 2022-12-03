@@ -10,12 +10,12 @@ const HomeScreen = () => {
   const [data, setData] = useState([]);
   const [episodeNo, setEpisodeNo] = useState(6);
   useEffect(() => {
-    const url = "http://localhost:8888/test";
-
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch("/api/episodes");
         const json = await response.json();
+
+        console.log(json);
         setData(json);
         setLoading(false);
       } catch (error) {
@@ -50,8 +50,8 @@ const HomeScreen = () => {
     ],
   };
 
-  const responseBody = data.body || [];
-  const episodes = responseBody?.items || [];
+  // const responseBody = data.body || [];
+  const episodes = data?.items || [];
 
   console.log(episodes);
 
