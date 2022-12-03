@@ -1,8 +1,7 @@
 import React from "react";
-import Facebook from "../Assets/facebook";
-import Twitter from "../Assets/twitter";
-import Youtube from "../Assets/youtube";
-import "./AboutFooter.scss";
+import Facebook from "../assets/facebook";
+import Twitter from "../assets/twitter";
+import Youtube from "../assets/youtube";
 
 const AboutFooter = () => {
   return (

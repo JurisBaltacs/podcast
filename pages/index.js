@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Slider from "react-slick";
 import EpisodeComponent from "../components/EpisodeComponent";
 import LinearProgress from "../components/ActivityIndicator";
+import Layout from "../components/Layout";
 import ShopContext from "../context/ShopContext";
 
 const HomeScreen = () => {
@@ -59,44 +60,45 @@ const HomeScreen = () => {
   };
 
   return (
-    <div className="homeScreen__wrapper">
-      {isLoading ? (
-        <LinearProgress />
-      ) : (
-        <div>
-        
-          {/* <div className="slider__wrapper">
+    <Layout>
+      <div className="homeScreen__wrapper">
+        {isLoading ? (
+          <LinearProgress />
+        ) : (
+          <div>
+            {/* <div className="slider__wrapper">
             <Slider {...settings}>
               {episodes.slice(10, 20).map((episode, index) => {
                 return <EpisodeComponent key={index} episode={episode} />;
               })}
             </Slider>
           </div> */}
-          Recent episodes
-          <div className="grid">
-            {episodes.slice(0, episodeNo).map((episode, index) => {
-              return (
-                <div>
-                  <EpisodeComponent
-                    key={index}
-                    // #TODO: Izdomāt, kā salikt concationation, lai beidzās ar daudzpunkti
-                    episode={episode}
-                    description={episode.description}
-                  />
-                </div>
-              );
-            })}
+            Recent episodes
+            <div className="grid">
+              {episodes.slice(0, episodeNo).map((episode, index) => {
+                return (
+                  <div>
+                    <EpisodeComponent
+                      key={index}
+                      // #TODO: Izdomāt, kā salikt concationation, lai beidzās ar daudzpunkti
+                      episode={episode}
+                      description={episode.description}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {episodes.length > episodeNo ? (
+              <button className="button__load-more" onClick={() => loadMore()}>
+                SHOW MORE
+              </button>
+            ) : (
+              <div>All episodes loaded</div>
+            )}
           </div>
-          {episodes.length > episodeNo ? (
-            <button className="button__load-more" onClick={() => loadMore()}>
-              SHOW MORE
-            </button>
-          ) : (
-            <div>All episodes loaded</div>
-          )}
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </Layout>
   );
 };
 

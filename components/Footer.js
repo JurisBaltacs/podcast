@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import SubscribeForm from "./SubscribeForm";
 import BlogPreviewComponent from "./BlogPreviewComponent";
 import AboutFooter from "./AboutFooter";
-import "./Footer.scss";
-import ShopContext from "../ContextProvider/ShopContext";
+import ShopContext from "../context/ShopContext";
 
 const Footer = () => {
   const { isLoading } = useContext(ShopContext);
