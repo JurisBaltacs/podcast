@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import Slider from "react-slick";
 import EpisodeComponent from "../components/EpisodeComponent";
 import LinearProgress from "../components/ActivityIndicator";
 import Layout from "../components/Layout";
 import ShopContext from "../context/ShopContext";
+import Slider from "../components/Slider";
 
 const HomeScreen = () => {
   const { isLoading, setLoading } = useContext(ShopContext);
@@ -26,34 +26,10 @@ const HomeScreen = () => {
     fetchData();
   }, []);
 
-  const settings = {
-    dots: true,
-
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1080,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
-
   // const responseBody = data.body || [];
   const episodes = data?.items || [];
 
-  console.log(episodes);
+  // console.log(episodes);
 
   const loadMore = () => {
     setEpisodeNo(episodeNo + 6);
@@ -66,13 +42,18 @@ const HomeScreen = () => {
           <LinearProgress />
         ) : (
           <div>
-            {/* <div className="slider__wrapper">
-            <Slider {...settings}>
-              {episodes.slice(10, 20).map((episode, index) => {
-                return <EpisodeComponent key={index} episode={episode} />;
-              })}
-            </Slider>
-          </div> */}
+            <div className="slider__wrapper">
+              <div>
+                <Slider episodes={episodes}>
+                  {/* <Slider {...settings}> */}
+                  {episodes.slice(10, 12).map((episode) => {
+                    return (
+                      <EpisodeComponent key={episode.id} episode={episode} />
+                    );
+                  })}
+                </Slider>
+              </div>
+            </div>
             Recent episodes
             <div className="grid">
               {episodes.slice(0, episodeNo).map((episode, index) => {
