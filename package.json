@@ -16,7 +16,6 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.16",
     "@prisma/client": "^4.7.1",
-    "autoprefixer": "^10.4.13",
     "keen-slider": "^6.8.5",
     "next": "13.0.6",
     "postcss": "^8.4.19",
@@ -27,6 +26,8 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
     "prisma": "^4.7.1",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19"
   }
 }

@@ -35,7 +35,9 @@ const EpisodePage = ({ uniqueEpisode }) => {
     <div>
       <div>{uniqueEpisode.name}</div>
       <img src={uniqueEpisode.image} />
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <button onClick={play}>Atksaņot 30 sekundes.</button>
+
       <audio id="a1">
         <source src={uniqueEpisode.audio_preview_url} type="audio/mpeg" />
         Your browser does not support the audio element.
