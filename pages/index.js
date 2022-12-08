@@ -13,6 +13,8 @@ export async function getServerSideProps() {
   };
 }
 
+
+
 const HomeScreen = ({ episodes }) => {
   const [episodeNo, setEpisodeNo] = useState(6);
   const loadMore = () => {
@@ -23,6 +25,7 @@ const HomeScreen = ({ episodes }) => {
       <div className={styles.slider__wrapper}>
         <Slider episodes={episodes} />
       </div>
+      
       Recent episodes
       <div className={styles.grid}>
         {episodes.slice(0, episodeNo).map((episode, index) => {
@@ -39,7 +42,11 @@ const HomeScreen = ({ episodes }) => {
         })}
       </div>
       {episodes.length > episodeNo ? (
-        <button className={styles.button__load_more} onClick={() => loadMore()}>
+        // <button className={styles.button__load_more} onClick={() => loadMore()}>
+        <button
+          className="text-3xl font-bold underline"
+          onClick={() => loadMore()}
+        >
           IELĀDĒT VĒL
         </button>
       ) : (

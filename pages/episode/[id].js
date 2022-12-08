@@ -9,7 +9,8 @@ import styles from "./UniqueEpisode.module.css";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
-  const episodes = await prisma.episode.findMany();
+  // #TODO: findMany() noderēs pie static props
+  // const episodes = await prisma.episode.findMany();
 
   const { params } = context;
 
@@ -19,7 +20,7 @@ export async function getServerSideProps(context) {
 
   // console.log("uniqueEpisode", uniqueEpisode);
   return {
-    props: { episodes, uniqueEpisode },
+    props: { uniqueEpisode },
   };
 }
 
