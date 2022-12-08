@@ -9,7 +9,6 @@ const shopItemsObject = [
 ];
 export const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoading, setLoading] = useState(true);
 
   const addItemToCart = (item) => {
     const id = cartItems.length
@@ -21,7 +20,7 @@ export const ShopContextProvider = ({ children }) => {
       productId: item.id,
       id,
     };
-    console.log("cartItems in context", cartItems);
+    // console.log("cartItems in context", cartItems);
     // #TODO: Ja izmantoju šo updatedCartItems, tad error, ka cartItems not iterable
     const updatedCartItems = [...cartItems, itemWithId];
     // saveCartItemsToLocalStorage(updatedCartItems);
@@ -46,8 +45,7 @@ export const ShopContextProvider = ({ children }) => {
         shopItemsObject,
         addItemToCart,
         updateCartItem,
-        isLoading,
-        setLoading,
+
       }}
     >
       {children}

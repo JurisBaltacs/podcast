@@ -1,85 +1,51 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
+import { PrismaClient } from "@prisma/client";
+// import Link from "next/link";
 import EpisodeComponent from "../components/EpisodeComponent";
-import LinearProgress from "../components/ActivityIndicator";
-import Layout from "../components/Layout";
-import ShopContext from "../context/ShopContext";
 import Slider from "../components/Slider";
+import styles from "./index.module.css";
 
-const HomeScreen = () => {
-  const { isLoading, setLoading } = useContext(ShopContext);
-  const [data, setData] = useState([]);
-  const [episodeNo, setEpisodeNo] = useState(6);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/episodes");
-        const json = await response.json();
-
-        console.log(json);
-        setData(json);
-        setLoading(false);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // const responseBody = data.body || [];
-  const episodes = data?.items || [];
-
-  // console.log(episodes);
-
-  const loadMore = () => {
-    setEpisodeNo(episodeNo + 6);
+export async function getServerSideProps() {
+  const prisma = new PrismaClient();
+  const episodes = await prisma.episode.findMany();
+  return {
+    props: { episodes },
   };
+}
 
+const HomeScreen = ({ episodes }) => {
+  const [episodeNo, setEpisodeNo] = useState(6);
+  const loadMore = () => {
+    setEpisodeNo(episodeNo + 9);
+  };
   return (
-    <Layout>
-      <div className="homeScreen__wrapper">
-        {isLoading ? (
-          <LinearProgress />
-        ) : (
-          <div>
-            <div className="slider__wrapper">
-              <div>
-                <Slider episodes={episodes}>
-                  {/* <Slider {...settings}> */}
-                  {episodes.slice(10, 12).map((episode) => {
-                    return (
-                      <EpisodeComponent key={episode.id} episode={episode} />
-                    );
-                  })}
-                </Slider>
-              </div>
-            </div>
-            Recent episodes
-            <div className="grid">
-              {episodes.slice(0, episodeNo).map((episode, index) => {
-                return (
-                  <div>
-                    <EpisodeComponent
-                      key={index}
-                      // #TODO: Izdomāt, kā salikt concationation, lai beidzās ar daudzpunkti
-                      episode={episode}
-                      description={episode.description}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-            {episodes.length > episodeNo ? (
-              <button className="button__load-more" onClick={() => loadMore()}>
-                SHOW MORE
-              </button>
-            ) : (
-              <div>All episodes loaded</div>
-            )}
-          </div>
-        )}
+    <div className={styles.homeScreen__wrapper}>
+      <div className={styles.slider__wrapper}>
+        <Slider episodes={episodes} />
       </div>
-    </Layout>
+      Recent episodes
+      <div className={styles.grid}>
+        {episodes.slice(0, episodeNo).map((episode, index) => {
+          return (
+            // <Link href={"episode/1"} key={index}>
+            <EpisodeComponent
+              key={index}
+              episode__picture={styles.grid__picture}
+              episode={episode}
+              description={episode.description}
+            />
+            // </Link>
+          );
+        })}
+      </div>
+      {episodes.length > episodeNo ? (
+        <button className={styles.button__load_more} onClick={() => loadMore()}>
+          IELĀDĒT VĒL
+        </button>
+      ) : (
+        <div>Tu esi ticis līdz sēriju saraksta beigām. Dabon dzīvi.</div>
+      )}
+    </div>
   );
 };
 

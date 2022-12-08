@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.menu__top_menu_item_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu__top_menu {
+  display: flex;
+  box-shadow: 0px 4px 6px #a8acb019;
+  height: 4rem;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.menu__top_menu_items a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #010101;
+  font-family: Poppins;
+  margin: 0 1rem;
+}
+
+.menu__top_menu_items a:hover {
+  color: #f75c72;
+}
+
+.active {
+  border-bottom: 2px solid #f75c72;
+}
+
+#mobile {
+  display: none;
+}
+
+.menu__top_menu_social {
+  padding-right: 0.5rem;
+  display: flex;
+}
+
+.menu__top_menu_social_icons {
+  display: flex;
+  margin-bottom: -0.5rem;
+}
+
+.menu__top_menu_social svg {
+  height: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+.menu__top_menu_cart {
+  padding-left: 0.5rem;
+  border-left: 1px solid rgb(177, 177, 177, 0.4);
+}
+
+.menu__top_menu_cart svg {
+  height: 1.2rem;
+  margin: 0 0.5rem;
+}
+.menu__top_menu_cart svg:hover,
+.menu__top_menu_social svg:hover {
+  fill: #f75c72;
+}
+
+@media screen and (max-width: 768px) {
+  .menu__top_menu_item-wrapper {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 6px #a8acb019;
+    height: 4rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 80px;
+    right: 0px;
+    width: 225px;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 20px 0 0 10px;
+    transition: 0.1s ease-in-out;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .menu__top_menu_item-wrapper_open {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 6px #a8acb019;
+    height: 4rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 80px;
+    right: 0px;
+    width: 225px;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 20px 0 0 10px;
+    transition: 0.1s ease-in-out;
+    z-index: 1;
+    position: absolute;
+    right: -350px;
+    box-shadow: none;
+  }
+
+  .menu__top_menu_items {
+    margin-bottom: 0.3rem;
+  }
+
+  #mobile {
+    display: block;
+  }
+
+  .menu__top_menu {
+    justify-content: space-between;
+  }
+}

@@ -2,25 +2,21 @@ import React, { useContext } from "react";
 import SubscribeForm from "./SubscribeForm";
 import BlogPreviewComponent from "./BlogPreviewComponent";
 import AboutFooter from "./AboutFooter";
-import ShopContext from "../context/ShopContext";
 
 const Footer = () => {
-  const { isLoading } = useContext(ShopContext);
   return (
     <div>
-      {!isLoading ? (
-        <div className="footer__wrapper">
-          <div className="footer__item">
-            <AboutFooter />
-          </div>
-          <div className="footer__item">
-            <BlogPreviewComponent />
-          </div>
-          <div className="footer__item">
-            <SubscribeForm />
-          </div>
+      <div className="footer__wrapper">
+        <div className="footer__item">
+          <AboutFooter />
         </div>
-      ) : null}
+        <div className="footer__item">
+          <BlogPreviewComponent />
+        </div>
+        <div className="footer__item">
+          <SubscribeForm />
+        </div>
+      </div>
     </div>
   );
 };

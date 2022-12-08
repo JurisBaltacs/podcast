@@ -2,19 +2,10 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import EpisodeComponent from "../components/EpisodeComponent";
+import styles from "./EpisodeComponent.module.css";
 
 const Slider = ({ episodes }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-
+  const [sliderRef] = useKeenSlider({
     loop: true,
     slides: {
       perView: 5,
@@ -44,8 +35,11 @@ const Slider = ({ episodes }) => {
     <div ref={sliderRef} className="keen-slider">
       {episodes.slice(10, 20).map((episode) => {
         return (
-          <div className="keen-slider__slide">
-            <EpisodeComponent key={episode.id} episode={episode} />
+          <div className="keen-slider__slide" key={episode.id}>
+            <EpisodeComponent
+              episode__picture={styles.slider__picture}
+              episode={episode}
+            />
           </div>
         );
       })}

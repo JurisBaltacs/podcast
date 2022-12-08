@@ -7,6 +7,7 @@ import Facebook from "../assets/facebook";
 import Twitter from "../assets/twitter";
 import Youtube from "../assets/youtube";
 import Cart from "../assets/cart";
+import styles from "./Layout.module.css";
 
 const categories = [
   { name: "GALVENĀ", path: "/" },
@@ -19,17 +20,17 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <div className="menu__top-menu">
+      <div className={styles.menu__top_menu}>
         <Logo />
         <div
           className={
             isOpen
-              ? "menu__top-menu--item-wrapper"
-              : "menu__top-menu--item-wrapper open"
+              ? styles.menu__top_menu_item_wrapper
+              : styles.menu__top_menu_item_wrapper_open
           }
         >
-          {categories.map((category) => (
-            <div className="menu__top-menu--items">
+          {categories.map((category, index) => (
+            <div className={styles.menu__top_menu_items} key={index}>
               <Link
                 href={category.path}
                 className={category.path === router.asPath ? "active" : ""}
@@ -39,13 +40,13 @@ export default function Layout({ children }) {
             </div>
           ))}
         </div>
-        <div className="menu__top-menu--social--icons">
-          <div className="menu__top-menu--social">
+        <div className={styles.menu__top_menu_social_icons}>
+          <div className={styles.menu__top_menu_social}>
             <Facebook />
             <Twitter />
             <Youtube />
           </div>
-          <div className="menu__top-menu--cart">
+          <div className={styles.menu__top_menu_cart}>
             <Link href="shoppingcart">
               <Cart />
             </Link>
