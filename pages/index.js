@@ -4,9 +4,9 @@ import { PrismaClient } from "@prisma/client";
 import EpisodeComponent from "../components/EpisodeComponent";
 import Slider from "../components/Slider";
 import styles from "./index.module.css";
+const prisma = git ();
 
 export async function getServerSideProps() {
-  const prisma = new PrismaClient();
   const episodes = await prisma.episode.findMany();
   return {
     props: { episodes },

@@ -7,8 +7,8 @@ import Twitter from "../../assets/twitter";
 import Youtube from "../../assets/youtube";
 import styles from "./UniqueEpisode.module.css";
 
+const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
-  const prisma = new PrismaClient();
   const episodes = await prisma.episode.findMany();
 
   const { params } = context;
