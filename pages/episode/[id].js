@@ -9,7 +9,8 @@ import styles from "./UniqueEpisode.module.css";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
-  const episodes = await prisma.episode.findMany();
+  // #TODO: findMany() noderēs pie static props
+  // const episodes = await prisma.episode.findMany();
 
   const { params } = context;
 
@@ -19,7 +20,7 @@ export async function getServerSideProps(context) {
 
   // console.log("uniqueEpisode", uniqueEpisode);
   return {
-    props: { episodes, uniqueEpisode },
+    props: { uniqueEpisode },
   };
 }
 
@@ -34,8 +35,9 @@ const EpisodePage = ({ uniqueEpisode }) => {
     <div>
       <div>{uniqueEpisode.name}</div>
       <img src={uniqueEpisode.image} />
-      <h1 className="text-3xl font-bold">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <button onClick={play}>Atksaņot 30 sekundes.</button>
+
       <audio id="a1">
         <source src={uniqueEpisode.audio_preview_url} type="audio/mpeg" />
         Your browser does not support the audio element.
