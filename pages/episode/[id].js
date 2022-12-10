@@ -4,7 +4,6 @@ import ReactAudioPlayer from "react-audio-player";
 import Facebook from "../../assets/facebook";
 import Twitter from "../../assets/twitter";
 import Youtube from "../../assets/youtube";
-import styles from "./uniqueEpisode.module.css";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
