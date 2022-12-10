@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import SubscribeForm from "./SubscribeForm";
 import BlogPreviewComponent from "./BlogPreviewComponent";
 import AboutFooter from "./AboutFooter";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="footer__wrapper">
-        <div className="footer__item">
+    <div className="flex justify-center bg-grey1 py-10">
+      <div className="w-5/6 pl-[3%] bg-grey1 text-white grid grid-cols-3">
+        <div>
           <AboutFooter />
         </div>
-        <div className="footer__item">
+        <div>
           <BlogPreviewComponent />
         </div>
-        <div className="footer__item">
+        <div>
           <SubscribeForm />
         </div>
       </div>

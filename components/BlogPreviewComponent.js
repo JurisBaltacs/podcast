@@ -2,8 +2,8 @@ import React from "react";
 
 const BlogPreviewComponent = () => {
   return (
-    <div>
-      <div className="footer__title">NO BLOGA</div>
+    <div className="pl-[1%]">
+      <div className="font-black text-2xl mb-4">NO BLOGA</div>
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import EpisodeComponent from "../components/EpisodeComponent";
-import styles from "./EpisodeComponent.module.css";
 
 const Slider = ({ episodes }) => {
   const [sliderRef] = useKeenSlider({
@@ -16,16 +15,19 @@ const Slider = ({ episodes }) => {
       "(max-width: 1400px)": {
         slides: {
           perView: 4,
+          spacing: 15,
         },
       },
       "(max-width: 1200px)": {
         slides: {
           perView: 3,
+          spacing: 10,
         },
       },
       "(max-width: 1080px)": {
         slides: {
           perView: 2,
+          spacing: 15,
         },
       },
     },
@@ -36,10 +38,7 @@ const Slider = ({ episodes }) => {
       {episodes.slice(10, 20).map((episode) => {
         return (
           <div className="keen-slider__slide" key={episode.id}>
-            <EpisodeComponent
-              episode__picture={styles.slider__picture}
-              episode={episode}
-            />
+            <EpisodeComponent episode={episode} />
           </div>
         );
       })}

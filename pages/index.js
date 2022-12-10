@@ -13,8 +13,6 @@ export async function getServerSideProps() {
   };
 }
 
-
-
 const HomeScreen = ({ episodes }) => {
   const [episodeNo, setEpisodeNo] = useState(6);
   const loadMore = () => {
@@ -25,26 +23,24 @@ const HomeScreen = ({ episodes }) => {
       <div className={styles.slider__wrapper}>
         <Slider episodes={episodes} />
       </div>
-      
-      Recent episodes
+      <div>Recent episodes</div>
       <div className={styles.grid}>
         {episodes.slice(0, episodeNo).map((episode, index) => {
           return (
-            // <Link href={"episode/1"} key={index}>
             <EpisodeComponent
               key={index}
-              episode__picture={styles.grid__picture}
               episode={episode}
               description={episode.description}
             />
-            // </Link>
           );
         })}
       </div>
       {episodes.length > episodeNo ? (
         // <button className={styles.button__load_more} onClick={() => loadMore()}>
         <button
-          className="text-3xl font-bold underline"
+          className="bg-grey3 rounded-md h-10 w-32 font-bold 
+          border-none text-grey2 text-14 mx-auto block my-8 transition ease-in-out
+          hover:bg-orange1 hover:text-white"
           onClick={() => loadMore()}
         >
           IELĀDĒT VĒL

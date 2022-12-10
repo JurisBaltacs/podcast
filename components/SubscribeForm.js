@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 // Code taken from: https://pragmaticpineapple.com/add-newsletter-subscription-form-to-react-website/
 
 const SubscribeForm = () => {
@@ -44,13 +43,14 @@ const SubscribeForm = () => {
   // #TODO: Pielikt e-pasta validation.
   return (
     <div>
-      <div className="footer__title">PIESAKIES JAUNUMIEM</div>
-      <div className="footer__paragraph">
+      <div className="font-black text-2xl mb-4">PIESAKIES JAUNUMIEM</div>
+      <div className="text-grey6 mb-4">
         Saņem jaunākās sērijas e-pastā. Nekāda spama!
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="form__input-wrapper">
+        <div className="flex flex-col">
           <input
+            className="mt-2 mb-2 w-5/6 text-grey1"
             aria-label="vards"
             name="fields[first_name]"
             placeholder="Vārds"
@@ -60,6 +60,7 @@ const SubscribeForm = () => {
           />
 
           <input
+            className=" mb-2 w-5/6 text-grey1 mb-4"
             aria-label="epasts"
             name="email_address"
             placeholder="E-pasts"
@@ -69,7 +70,10 @@ const SubscribeForm = () => {
             value={email}
           />
         </div>
-        <button className="form__subscribe-button">PIETEIKTIES</button>
+        <button className="bg-orange1 mt-2 rounded-md text-14 font-bold transition ease-in-out w-32 py-2 hover:bg-grey5">
+
+          PIETEIKTIES
+        </button>
       </form>
     </div>
   );

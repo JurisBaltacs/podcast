@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import styles from "./EpisodeComponent.module.css";
 
 const EpisodeComponent = ({ episode, description }) => {
   const millisToMinutesAndSeconds = (millis) => {
@@ -9,26 +8,30 @@ const EpisodeComponent = ({ episode, description }) => {
     return minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
   };
 
-  // console.log("episode comp", episode);
   return (
     <div>
       <Link href={"episode/" + episode.id}>
-        <div className={styles.episode__wrapper}>
-          <div className={styles.duration}>
+        <div className="relative ">
+          <div className=" flex bg-orange1 rounded-md text-white w-16 justify-center text-xs absolute bottom-4 left-[50%] transform -translate-x-1/2 z-10 transition-all duration-300 hover:bg-black1">
             {millisToMinutesAndSeconds(episode.duration_ms)}
           </div>
-          <img className={styles.episode__picture} src={episode.image} />
+          <img
+            className="w-[300px] rounded-md mx-auto block transition-all duration-300 hover:brightness-75"
+            src={episode.image}
+          />
         </div>
-        <div className={styles.slider__text_wrapper}>
-          <div className={styles.slider__episode_name}>
+        <div className="mt-2 py-0 px-3">
+          <div className="font-bold text-black1 mt-3 text-lg line-clamp-2">
             {episode.name.replace("| Podkāsts Svarīgās detaļas", "")}
           </div>
-          <div className={styles.slider__episode_description}>
+          <div className="text-black1 text-base mt-1 line-clamp-2">
             {description?.slice(0, 150)}
           </div>
-          <div className={styles.slider__release_date}>
-            <div className={styles.slider__text_release_wrapper}>
-              <div className={styles.slider__text_release}>• &nbsp;</div>
+          <div className="text-grey4 text-xs">
+            <div className="flex items-center">
+              <div className="flex text-orange1 font-bold text-base">
+                • &nbsp;
+              </div>
               {episode.release_date}
             </div>
           </div>
