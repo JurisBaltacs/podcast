@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { PrismaClient } from "@prisma/client";
-// import Link from "next/link";
 import EpisodeComponent from "../components/EpisodeComponent";
 import Slider from "../components/Slider";
-import styles from "./index.module.css";
 const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
@@ -19,12 +17,12 @@ const HomeScreen = ({ episodes }) => {
     setEpisodeNo(episodeNo + 9);
   };
   return (
-    <div className={styles.homeScreen__wrapper}>
-      <div className={styles.slider__wrapper}>
+    <div className="w-[80%] mx-auto">
+      <div className="hidden md:block">
         <Slider episodes={episodes} />
       </div>
       <div>Recent episodes</div>
-      <div className={styles.grid}>
+      <div className="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-3">
         {episodes.slice(0, episodeNo).map((episode, index) => {
           return (
             <EpisodeComponent
@@ -36,7 +34,6 @@ const HomeScreen = ({ episodes }) => {
         })}
       </div>
       {episodes.length > episodeNo ? (
-        // <button className={styles.button__load_more} onClick={() => loadMore()}>
         <button
           className="bg-grey3 rounded-md h-10 w-32 font-bold 
           border-none text-grey2 text-14 mx-auto block my-8 transition ease-in-out
