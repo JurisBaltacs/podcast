@@ -1,24 +1,22 @@
 const blogPosts = [
   {
-    title: (
-      <title>
-        Kā podkāsta veidošana papildinājusi manu dzīvi | Juris Baltačs
-      </title>
-    ),
+    id: "1",
+    image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
+    title: "Kā podkāsta veidošana papildinājusi manu dzīvi | Juris Baltačs",
     body: (
-      <body>
-        Podkāstu sāku veidot spontāni, jo man patīk podkāsti, bet Svarīgo detaļu
-        podkāsts manu dzīvi papildinājis vairāk veidos, kā gaidīju. Tagad, kad
-        jau 50+ sērijas ir aiz muguras, varu atskatīties uz dažiem pienesumiem,
-        kas ir pasvītrošanas vērti. Lūk: Iespēja klātienē satikt man
-        interesējošos cilvēkus. Šis ir acīmredzamākais ieguvums. Līdz podkāsta
-        veidošanai, manas ikdienas trajektorijā neibija nekas, kas būtu novedis
-        līdz tēržešanai ar Vairu Vīķi – Freibergu, ģenerāli Raimondu Graubi,
-        Danielu Pavļutu vai citiem viesiem, ko varēju sastapt tikai podkāsta
-        dēļ. Un podkāsta sarunas formāts ļauj šīm tikšanās reizēm būt saturīgām
-        un sarunas neapstājas tikai pie pieklājības frāzēm, kā tas parasti ir,
-        ja paveicās sastapt interesantus cilvēkus ierastās ikdienas laikā.
-        Podkāsta sarunas ļauj arī uzdot jautājumus, kas man pašam ir
+      <div>
+        "Podkāstu sāku veidot spontāni, jo man patīk podkāsti, bet Svarīgo
+        detaļu podkāsts manu dzīvi papildinājis vairāk veidos, kā gaidīju.
+        Tagad, kad jau 50+ sērijas ir aiz muguras, varu atskatīties uz dažiem
+        pienesumiem, kas ir pasvītrošanas vērti. Lūk: Iespēja klātienē satikt
+        man interesējošos cilvēkus. Šis ir acīmredzamākais ieguvums. Līdz
+        podkāsta veidošanai, manas ikdienas trajektorijā neibija nekas, kas būtu
+        novedis līdz tēržešanai ar Vairu Vīķi – Freibergu, ģenerāli Raimondu
+        Graubi, Danielu Pavļutu vai citiem viesiem, ko varēju sastapt tikai
+        podkāsta dēļ. Un podkāsta sarunas formāts ļauj šīm tikšanās reizēm būt
+        saturīgām un sarunas neapstājas tikai pie pieklājības frāzēm, kā tas
+        parasti ir, ja paveicās sastapt interesantus cilvēkus ierastās ikdienas
+        laikā. Podkāsta sarunas ļauj arī uzdot jautājumus, kas man pašam ir
         interesējuši, bet, ko diez vai uzdotu ierastie mediji, piemēram, jau
         minētās Vairas Vīķes – Freibergas gadījumā, es jau sen gribēju zināt,
         vai viņas sarkanā kleita NATO samitā bija apzināta izvēle, lai izceltos
@@ -159,14 +157,16 @@ const blogPosts = [
         ar TEDtalku garuma iespraudumiem, kuros skaidroju lielās dzīves
         patiesības un vienlaicīgi, garlaikoju visus klātesošos. Bet tagad, kad
         zinu, ka lielās gudrības ir izstāstītas podkāstā, ikdienas sarunas varu
-        veltīt ikdienišķām tēmām, jo viedums jau ir nobērts podkāstā.
-      </body>
+        veltīt ikdienišķām tēmām, jo viedums jau ir nobērts podkāstā."
+      </div>
     ),
   },
   {
-    title: <title>Podkāsti pie kuriem atgriežos. Un kādēļ.</title>,
+    id: "2",
+    image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
+    title: "Podkāsti pie kuriem atgriežos. Un kādēļ.",
     body: (
-      <body>
+      <div>
         Viens no iemesliem, kādēļ sāku veidot Svarīgo detaļu podkāstu ir, jo man
         pašam patīk podkāsti. Patiesībā, viens no biežākajiem ieradumiem pie kā
         sevi pieķeru ir ieradums sākt teikumus ar: “Nesen vienā podkāstā
@@ -293,46 +293,46 @@ const blogPosts = [
         priekš manis ir kā kristāla bumba, kura ļauj ieskatīties citu cilvēku
         dzīves stāstos un, ja ne uzzināt, kas slēpjas manā nākotnē, vismaz tie
         pasaka, kāda veida dilemmas un šķēršļus es varu gaidīt.
-      </body>
+      </div>
     ),
   },
   {
-    title: (
-      <title>25/7 Produktivitātes padomi pie kuriem regulāri atgriežos</title>
-    ),
+    id: "3",
+    image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
+    title: "25/7 Produktivitātes padomi pie kuriem regulāri atgriežos",
     body: (
-      <body>
+      <div>
         Ja visi produktivitātes padomi, ko regulāri lietoju būtu jādestilē vienā
-        frāzē, tā būtu: Vairāk sūdzies par laika trūkumu. Saglabā možumu, mazini
-        mentālo noslodzi un vienmēr dari tikai vienu lietu vienā laikā. Mēs visi
-        esam mēģinājuši darīt vairākas lietas vienlaicīgi un noteikti neesmu
-        vienīgais kas pamana cik neproduktīvi un nepatīkami tas ir. It kā dzīvot
-        ar nepārtraukti novērstu uzmanību, pastāvīgi pārbaudot visas sociālo
-        tīklu notifikācijas, kuras atjaunojas ātrāk kā iespējams tās izlasīt.
-        Manuprāt, produktīvs darbs (un labsajūta) sākas ar ilgtspējīgu možuma
-        noturēšanu, tādēļ možumu uztveru kā resursu, ko pārvaldīt. Es to
-        iedomājos uz skalas no mīnus desmit līdz desmit. Mīnus desmit te apzīmē
-        pilnīgu bezspēku un enerģijas trūkumu. To sajūtu kāda rodas kad esi
-        sasirdzis ar gripu un kļūsti arvien gurdenāks pat guļot gultā. Skalas
-        otrs gals, plus desmit, apzīmē sajūtu brīdī kad Tev uzbrūk nikns suns no
-        kura jābēg. Tas ir brīdis kad liekas, ka vari performēt ar maksimālu
-        piepūli un nekad nenogurt. Šīs abas ir galējības un nekad nepastāv
-        ilgtermiņā. Viduspunkts, nulle, ir kaut kas, ko var uzturēt ilgi. Tā ir
-        sajūta, kad pamodies sestdienas rītā un zini, ka līdz pirmdienai nekas
-        nav jāpaspēj. Nav plānu izklaidēties un nav plānu lasīt vai nodoties
-        hobijiem. Ir tikai neitrāla veģetēšana. Kad strādāju, turos līmenī ap
-        divi vai trīs. Tā ir sajūta, ko ikdienā gūstu kad ģērbjos, izejot no
-        mājas, lai paspētu uz autobusu, kuru gandrīz kavēju. Te apzinos, ka
-        lietas ritēs pēc plāna tikai, ja tagad saņemšos un mazliet pasteigšos.
-        Šādā stadijā parasti esmu pirmdienas rītā kad ierodos darbā. Tas ir
-        možuma līmenis kas nāk automātiski. Māksla ir to noturēt līdz pirmdienas
-        vakaram un nākamās četras dienas. Es to kultivēju ar rīta rutīnu, kas
-        iekļauj sevī sportošanu un kontrast dušu (trīsdesmit sekundes auksts
-        ūdens, trīsdesmit sekundes silts un tā divas reizes). Rīta rutīna sniedz
-        startu dienai un ieliek to apzināti izvēlētās sliedēs. Bez rīta rutīnas
-        rīts mani nesagatavotu iemet dienas kņadā. Uzsveru, ka rutīnai jābūt
-        apzināti izvēlētai un tai sevī jāiekļauj kāds centības elements. Reiz
-        kādam draugam vaicāju vai viņam ir sava rutīna dienas sākumam un viņš
+        frāzē, tā būtu: Saglabā možumu, mazini mentālo noslodzi un vienmēr dari
+        tikai vienu lietu vienā laikā. Mēs visi esam mēģinājuši darīt vairākas
+        lietas vienlaicīgi un noteikti neesmu vienīgais kas pamana cik
+        neproduktīvi un nepatīkami tas ir. It kā dzīvot ar nepārtraukti novērstu
+        uzmanību, pastāvīgi pārbaudot visas sociālo tīklu notifikācijas, kuras
+        atjaunojas ātrāk kā iespējams tās izlasīt. Manuprāt, produktīvs darbs
+        (un labsajūta) sākas ar ilgtspējīgu možuma noturēšanu, tādēļ možumu
+        uztveru kā resursu, ko pārvaldīt. Es to iedomājos uz skalas no mīnus
+        desmit līdz desmit. Mīnus desmit te apzīmē pilnīgu bezspēku un enerģijas
+        trūkumu. To sajūtu kāda rodas kad esi sasirdzis ar gripu un kļūsti
+        arvien gurdenāks pat guļot gultā. Skalas otrs gals, plus desmit, apzīmē
+        sajūtu brīdī kad Tev uzbrūk nikns suns no kura jābēg. Tas ir brīdis kad
+        liekas, ka vari performēt ar maksimālu piepūli un nekad nenogurt. Šīs
+        abas ir galējības un nekad nepastāv ilgtermiņā. Viduspunkts, nulle, ir
+        kaut kas, ko var uzturēt ilgi. Tā ir sajūta, kad pamodies sestdienas
+        rītā un zini, ka līdz pirmdienai nekas nav jāpaspēj. Nav plānu
+        izklaidēties un nav plānu lasīt vai nodoties hobijiem. Ir tikai neitrāla
+        veģetēšana. Kad strādāju, turos līmenī ap divi vai trīs. Tā ir sajūta,
+        ko ikdienā gūstu kad ģērbjos, izejot no mājas, lai paspētu uz autobusu,
+        kuru gandrīz kavēju. Te apzinos, ka lietas ritēs pēc plāna tikai, ja
+        tagad saņemšos un mazliet pasteigšos. Šādā stadijā parasti esmu
+        pirmdienas rītā kad ierodos darbā. Tas ir možuma līmenis kas nāk
+        automātiski. Māksla ir to noturēt līdz pirmdienas vakaram un nākamās
+        četras dienas. Es to kultivēju ar rīta rutīnu, kas iekļauj sevī
+        sportošanu un kontrast dušu (trīsdesmit sekundes auksts ūdens,
+        trīsdesmit sekundes silts un tā divas reizes). Rīta rutīna sniedz startu
+        dienai un ieliek to apzināti izvēlētās sliedēs. Bez rīta rutīnas rīts
+        mani nesagatavotu iemet dienas kņadā. Uzsveru, ka rutīnai jābūt apzināti
+        izvēlētai un tai sevī jāiekļauj kāds centības elements. Reiz kādam
+        draugam vaicāju vai viņam ir sava rutīna dienas sākumam un viņš
         atbildēja aptuveni: “Jā, es izdzeru kafiju un aizeju pasēdēt.” Tas
         neskaitās. Laba rīta rutīna nav lietas, ko darām automātiski, tās ir
         lietas, kuras jāizvēlas darīt apzināti. Pēc rīta rutīnas mans možums
@@ -465,13 +465,15 @@ const blogPosts = [
         iztērēta mana uzmanība. Šie padomi, pie kuriem atkārtoti atgriežos, ir
         veids kā atgūstu kontroli pār saviem pūliņiem un panāku, ka lietas,
         kurām veltu savu uzmanību ir izvēlētas apzināti.
-      </body>
+      </div>
     ),
   },
   {
-    title: <title>Kā izvēlēties vērtīgāku hobiju</title>,
+    id: "4",
+    image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
+    title: "Kā izvēlēties vērtīgāku hobiju",
     body: (
-      <body>
+      <div>
         Lemjot, ko jaunu uzsākt nākamajā gadā, pastāv drauds noticēt
         refleksīvajam ieteikumam “Dari to, kas Tev patīk”. Samierināšanās ar to
         kas patīk ir tikai puse no uzvaras. Lietas, kuras patīk var sniegt
@@ -543,7 +545,7 @@ const blogPosts = [
         vairums izvēļu, katram ir jāveic pašam. Jautājumi par to, kā vērtību, ko
         sniedz hobijs var pārnest ārpus paša hobija ir rīki, kas palīdz izsvērt
         Tev pieejamos variantus. Priecāšos, ja tie papildinās Tavu 2017. gadu!
-      </body>
+      </div>
     ),
   },
 ];

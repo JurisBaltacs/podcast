@@ -24,11 +24,6 @@ module.exports = {
         orange1: "#f74557",
       },
     },
-    // screens: {
-    //   sm: "576px",
-    //   md: "960px",
-    //   lg: "1440px",
-    // },
   },
   plugins: [
     require("@tailwindcss/line-clamp"),

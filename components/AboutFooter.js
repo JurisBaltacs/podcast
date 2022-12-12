@@ -5,7 +5,7 @@ import Youtube from "../assets/youtube";
 
 const AboutFooter = () => {
   return (
-    <div className="pl-[1%] w-5/6">
+    <div className=" pl-4 mb-4">
       <div className="font-black text-2xl mb-4">BAUDI UN DALIES</div>
       <div className="text-grey6 mb-4">
         Svarīgās detaļas ir ikmēneša podkāsts, kurā viesi dalās ar vērtīgākajiem

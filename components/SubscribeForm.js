@@ -42,7 +42,7 @@ const SubscribeForm = () => {
   };
   // #TODO: Pielikt e-pasta validation.
   return (
-    <div>
+    <div className="pl-4">
       <div className="font-black text-2xl mb-4">PIESAKIES JAUNUMIEM</div>
       <div className="text-grey6 mb-4">
         Saņem jaunākās sērijas e-pastā. Nekāda spama!
@@ -71,7 +71,6 @@ const SubscribeForm = () => {
           />
         </div>
         <button className="bg-orange1 mt-2 rounded-md text-14 font-bold transition ease-in-out w-32 py-2 hover:bg-grey5">
-
           PIETEIKTIES
         </button>
       </form>

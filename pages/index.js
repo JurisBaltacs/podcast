@@ -4,7 +4,7 @@ import EpisodeComponent from "../components/EpisodeComponent";
 import Slider from "../components/Slider";
 const prisma = new PrismaClient();
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const episodes = await prisma.episode.findMany();
   return {
     props: { episodes },

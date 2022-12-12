@@ -16,24 +16,18 @@ export async function getServerSideProps(context) {
     where: { id: Number(params.id) },
   });
 
-  // console.log("uniqueEpisode", uniqueEpisode);
   return {
     props: { uniqueEpisode },
   };
 }
 
 const EpisodePage = ({ uniqueEpisode }) => {
-  // const parse = require("html-react-parser");
-  // function play() {
-  //   var audio = document.getElementById("a1");
-  //   audio.play();
-  // }
 
   return (
     <div className="flex justify-center pt-10">
       <div className="w-[80%]">
         <div className="float-right pl-6">
-          <img className="rounded-lg" src={uniqueEpisode.image} />
+          <img className="rounded-lg w-[300px]" src={uniqueEpisode.image} />
           <ReactAudioPlayer
             src={uniqueEpisode.audio_preview_url}
             controls

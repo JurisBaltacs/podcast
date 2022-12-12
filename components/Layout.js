@@ -31,18 +31,15 @@ export default function Layout({ children }) {
     <div>
       <div className="relative mx-auto">
         <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-8">
-          <div>
-            <Logo />
-          </div>
-
-          <div className="flex flex-row">
+          <Logo />
+          <div className="flex flex-row static">
             {categories.map((category, index) => (
               <div
                 className="font-bold text-grey1 m-1 hover:text-orange1 w-100"
                 // #TODO: Pielikt active klasi. Visdrīzāk ar Classes libu.
                 key={index}
               >
-                <Link href={category.path} className="hidden md:block m-4">
+                <Link href={category.path} className="hidden md:block m-4 ">
                   {category.name}
                 </Link>
               </div>
@@ -59,7 +56,7 @@ export default function Layout({ children }) {
               <MobileMenuComponent categories={categories} />
             </div>
           </div>
-          <div className="flex">
+          <div className="flex absolute md:static">
             <div className="flex space-x-4 mr-2 items-center border-r-2 pr-2">
               {/* #TODO: Optimize child selectros for hover effect */}
               <div className="hover:fill-orange1 cursor-pointer">
