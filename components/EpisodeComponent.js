@@ -33,9 +33,13 @@ const EpisodeComponent = ({ episode, description, isSlider }) => {
           <div className="text-black1 text-base mt-1 line-clamp-2">
             {description?.slice(0, 150)}
           </div>
-          <div className="text-grey4 text-xs">
+          <div
+            className={classNames("text-grey4 text-xs", {
+              "mt-[-6%]": isSlider,
+            })}
+          >
             <div className="flex items-center">
-              <div className="flex text-orange1 font-bold text-base">
+              <div className="flex text-orange1 font-bold text-base pb-0.5 mr-[-4px]">
                 • &nbsp;
               </div>
               {episode.release_date}

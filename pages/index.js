@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import EpisodeComponent from "../components/EpisodeComponent";
-import Slider from "../components/Slider";
+// import Slider from "../components/Slider";
+import Slider2 from "../components/Slider2";
+
 const prisma = new PrismaClient();
 
 export async function getStaticProps() {
@@ -19,9 +21,18 @@ const HomeScreen = ({ episodes }) => {
   return (
     <div className="w-[80%] mx-auto">
       <div className="hidden md:block">
-        <Slider episodes={episodes} />
+        {/* <Slider episodes={episodes} /> */}
+        <Slider2 episodes={episodes} />
       </div>
-      <div>Recent episodes</div>
+      <div className="flex items-center py-4">
+        <div className="hidden md:block flex-grow h-px bg-grey3"></div>
+
+        <span className="hidden md:block font-bold text-2xl my-8 px-4">
+          JAUNĀKĀS SĒRIJAS
+        </span>
+
+        <div className="hidden md:block flex-grow h-px bg-grey3"></div>
+      </div>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-3">
         {episodes.slice(0, episodeNo).map((episode, index) => {
           return (

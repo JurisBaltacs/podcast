@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Logo from "../assets/Logo";
 import Facebook from "../assets/facebook";
@@ -19,15 +19,17 @@ const categories = [
 
 export default function Layout({ children }) {
   const [isClosed, setClosed] = useState(true);
-  // const router = useRouter();
+  const router = useRouter();
 
   var classNames = require("classnames");
+
+  const isTopMenu = !!router;
 
   const toggleMobileMenu = () => {
     setClosed(!isClosed);
   };
-
   return (
+    // <div onClick={() => toggleMobileMenu()}> #TODO: Vai var būt divi onClick toggle eventi? Šis ne vienmēr nostrādā.
     <div>
       <div className="relative mx-auto">
         <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-8">
@@ -35,11 +37,16 @@ export default function Layout({ children }) {
           <div className="flex flex-row static">
             {categories.map((category, index) => (
               <div
-                className="font-bold text-grey1 m-1 hover:text-orange1 w-100"
-                // #TODO: Pielikt active klasi. Visdrīzāk ar Classes libu.
+                className="font-bold text-grey1 m-1 hover:text-orange1 w-100 transition-all duration-300"
                 key={index}
               >
-                <Link href={category.path} className="hidden md:block m-4 ">
+                {/* #TODO: Vai šo active klasi nevar noteikt vienkāršāk? */}
+                <Link
+                  href={category.path}
+                  className={classNames("hidden md:block m-4 border-orange1", {
+                    "border-b-2": router.pathname === category.path,
+                  })}
+                >
                   {category.name}
                 </Link>
               </div>
@@ -58,19 +65,13 @@ export default function Layout({ children }) {
           </div>
           <div className="flex absolute md:static">
             <div className="flex space-x-4 mr-2 items-center border-r-2 pr-2">
-              {/* #TODO: Optimize child selectros for hover effect */}
-              <div className="hover:fill-orange1 cursor-pointer">
-                <Facebook />
-              </div>
-              <div className="hover:fill-orange1 cursor-pointer">
-                <Twitter />
-              </div>
-              <div className="hover:fill-orange1 cursor-pointer">
-                <Youtube />
-              </div>
+              {/* #TODO: Is there a more elegant way to make icons switch collors between top and bottom menu? */}
+              <Facebook isTopMenu={isTopMenu} />
+              <Twitter isTopMenu={isTopMenu} />
+              <Youtube isTopMenu={isTopMenu} />
             </div>
             <div className="h-8 w-8 items-center mt-2">
-              <Link href="shoppingcart">
+              <Link href="/shoppingcart">
                 <Cart />
               </Link>
             </div>

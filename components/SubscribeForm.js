@@ -43,7 +43,7 @@ const SubscribeForm = () => {
   // #TODO: Pielikt e-pasta validation.
   return (
     <div className="pl-4">
-      <div className="font-black text-2xl mb-4">PIESAKIES JAUNUMIEM</div>
+      <div className="font-black text-2xl md:mb-4">PIESAKIES JAUNUMIEM</div>
       <div className="text-grey6 mb-4">
         Saņem jaunākās sērijas e-pastā. Nekāda spama!
       </div>

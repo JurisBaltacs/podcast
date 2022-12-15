@@ -18,6 +18,18 @@ const Slider = ({ episodes }) => {
           spacing: 15,
         },
       },
+      // "(max-width: 1200px)": {
+      //   slides: {
+      //     perView: 3,
+      //     spacing: 10,
+      //   },
+      // },
+      // "(max-width: 1080px)": {
+      //   slides: {
+      //     perView: 2,
+      //     spacing: 15,
+      //   },
+      // },
     },
   });
 

@@ -1,5 +1,6 @@
 const blogPosts = [
   {
+    date: "2019-07-12",
     id: "1",
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     title: "Kā podkāsta veidošana papildinājusi manu dzīvi | Juris Baltačs",
@@ -162,6 +163,7 @@ const blogPosts = [
     ),
   },
   {
+    date: "2018-06-02",
     id: "2",
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     title: "Podkāsti pie kuriem atgriežos. Un kādēļ.",
@@ -297,6 +299,7 @@ const blogPosts = [
     ),
   },
   {
+    date: "2017-01-22",
     id: "3",
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     title: "25/7 Produktivitātes padomi pie kuriem regulāri atgriežos",
@@ -469,6 +472,7 @@ const blogPosts = [
     ),
   },
   {
+    date: "2016-12-12",
     id: "4",
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     title: "Kā izvēlēties vērtīgāku hobiju",

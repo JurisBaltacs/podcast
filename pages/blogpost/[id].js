@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
 
 const BlogPost = ({ post }) => {
   return (
-    <div>
+    <div className="w-[90%] md:w-[80%] mx-auto">
       <div className="font-bold leading-tight text-gray-900 text-lg">
         {post.title}
       </div>
