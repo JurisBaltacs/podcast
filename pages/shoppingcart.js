@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import ShopContext from "../context/ShopContext";
-import ShopItemCard from "../components/ShopItemCard";
+// import ShopItemCard from "../components/ShopItemCard";
+import ShoppingCartItemComponent from "../components/ShoppingCartItemComponent";
 
 const ShoppingCart = () => {
   const { cartItems } = useContext(ShopContext);
   console.log("cartItems cart screen", cartItems);
 
-
-  if (cartItems) {
+  if (cartItems.length > 0) {
     return (
-      <div>
+      <div className="w-[80%] mx-auto">
         {cartItems.map((item, index) => {
-          return <ShopItemCard item={item} key={index} />;
+          return <ShoppingCartItemComponent item={item} key={index} />;
         })}
       </div>
     );
   } else {
-    return <div>Cart is empty</div>;
+    return <div>CGrozs ir tukšs</div>;
   }
 };
 

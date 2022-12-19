@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AttributeComponent = ({ attributes }) => {
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  var classNames = require("classnames");
+
   return (
     <div>
       {attributes.map((attribute) => {
@@ -14,7 +19,11 @@ const AttributeComponent = ({ attributes }) => {
                     <div
                       key={item.value}
                       style={{ backgroundColor: item.value }}
-                      className="w-8 h-8 border border-grey1 mr-2"
+                      onClick={() => setSelectedColor(item.value)}
+                      className={classNames(
+                        "w-8 h-8 border border-grey1 mr-3 cursor-pointer outline-offset-1 outline-2",
+                        { outline: item.value === selectedColor }
+                      )}
                     ></div>
                   );
                 })}
@@ -30,8 +39,12 @@ const AttributeComponent = ({ attributes }) => {
                 {attribute.items.map((item) => {
                   return (
                     <div
+                      onClick={() => setSelectedSize(item.value)}
                       key={item.value}
-                      className="w-8 h-8 border border-grey1 mr-2 flex justify-center items-center"
+                      className={classNames(
+                        "w-8 h-8 border border-grey1 mr-3 cursor-pointer outline-offset-1 outline-2 flex justify-center items-center",
+                        { outline: item.value === selectedSize }
+                      )}
                     >
                       {item.value}
                     </div>

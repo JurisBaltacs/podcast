@@ -5,8 +5,7 @@ import ShopItemCard from "../components/ShopItemCard";
 import { shopItemsObject } from "../assets/ShopItems";
 
 const Shop = () => {
-  const { cartItems, setCartItems, addItemToCart, updateCartItem } =
-    useContext(ShopContext);
+  const { addItemToCart } = useContext(ShopContext);
 
   // const addToCart = () => {
   //   const itemInCart = cartItems.find(
@@ -26,12 +25,11 @@ const Shop = () => {
   // };
 
   const addToCart = (item) => {
-    // #TODO: Vai te vajag {}?
     addItemToCart(item);
   };
 
   return (
-    <div className="w-[90%] mx-auto mb-8">
+    <div className="w-[80%] mx-auto mb-8">
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-y-6">
         {shopItemsObject.map((item) => (
           <Link href={"shopitem/" + item.id} key={item.id} className="mx-auto">

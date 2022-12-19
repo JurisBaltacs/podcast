@@ -50,7 +50,7 @@ const SubscribeForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <input
-            className="mt-2 mb-2 w-5/6 text-grey1"
+            className="mt-2 mb-2 w-5/6 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
             aria-label="vards"
             name="fields[first_name]"
             placeholder="Vārds"
@@ -60,7 +60,7 @@ const SubscribeForm = () => {
           />
 
           <input
-            className=" mb-2 w-5/6 text-grey1 mb-4"
+            className=" mb-2 w-5/6 text-grey1 mb-4 placeholder-grey4 focus:placeholder-opacity-0"
             aria-label="epasts"
             name="email_address"
             placeholder="E-pasts"

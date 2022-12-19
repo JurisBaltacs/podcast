@@ -4,18 +4,50 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url = env("DATABASE_URL") 
+  url      = env("DATABASE_URL")
 }
 
 model Episode {
-  id Int @id @default(autoincrement())
-  description String @db.Text
-  duration_ms Int
-  href String
-  html_description String @db.Text
-  name String
-  release_date String
-  image String
-  spotify_id String
+  id                Int    @id @default(autoincrement())
+  description       String @db.Text
+  duration_ms       Int
+  href              String
+  html_description  String @db.Text
+  name              String
+  release_date      String
+  image             String
+  spotify_id        String
   audio_preview_url String
 }
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  name       String
+  body       String
+  episode_id Int
+  createdAt  DateTime @default(now())
+}
+
+model BlogPost {
+  id        Int      @id @default(autoincrement())
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+}
+
+// model Comment {
+//   id        Int      @id @default(autoincrement())
+//   name      String
+//   body      String
+//   post      BlogPost @relation(fields: [post_id], references: [id])
+//   post_id   Int
+//   createdAt DateTime @default(now())
+// }
+
+// model BlogPost {
+//   id        Int       @id @default(autoincrement())
+//   title     String
+//   body      String
+//   comments  Comment[]
+//   createdAt DateTime  @default(now())
+// }

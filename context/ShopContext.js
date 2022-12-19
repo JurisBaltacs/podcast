@@ -35,7 +35,6 @@ export const ShopContextProvider = ({ children }) => {
       }
       return item;
     });
-    // this.saveCartItemsToLocalStorage(updatedCartItems);
     setCartItems(updatedCartItems);
   };
 
@@ -46,9 +45,6 @@ export const ShopContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // const currencyFromLocalStorage = localStorage.getItem("currency") || "usd";
-    // this.setState({ selectedCurrency: currencyFromLocalStorage });
-
     const cartItemsFromLocalStorage = localStorage.getItem("cartItems");
     if (cartItemsFromLocalStorage) {
       try {

@@ -32,8 +32,9 @@ export default function Layout({ children }) {
     // <div onClick={() => toggleMobileMenu()}> #TODO: Vai var būt divi onClick toggle eventi? Šis ne vienmēr nostrādā.
     <div>
       <div className="relative mx-auto">
-        <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-8">
+        <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6">
           <Logo />
+
           <div className="flex flex-row static">
             {categories.map((category, index) => (
               <div
@@ -52,6 +53,7 @@ export default function Layout({ children }) {
               </div>
             ))}
           </div>
+
           <div className="md:hidden">
             <div
               className={classNames(
@@ -71,6 +73,8 @@ export default function Layout({ children }) {
               <Youtube isTopMenu={isTopMenu} />
             </div>
             <div className="h-8 w-8 items-center mt-2">
+              <div className="w-6 h-6 rounded-full bg-red-500 absolute top-2 right-32"></div>
+              <div className="flex flex-wrap items-center gap-2"></div>
               <Link href="/shoppingcart">
                 <Cart />
               </Link>

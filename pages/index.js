@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PrismaClient } from "@prisma/client";
 import EpisodeComponent from "../components/EpisodeComponent";
-// import Slider from "../components/Slider";
-import Slider2 from "../components/Slider2";
+import Slider from "../components/Slider";
 
 const prisma = new PrismaClient();
 
@@ -21,8 +20,7 @@ const HomeScreen = ({ episodes }) => {
   return (
     <div className="w-[80%] mx-auto">
       <div className="hidden md:block">
-        {/* <Slider episodes={episodes} /> */}
-        <Slider2 episodes={episodes} />
+        <Slider episodes={episodes} />
       </div>
       <div className="flex items-center py-4">
         <div className="hidden md:block flex-grow h-px bg-grey3"></div>
