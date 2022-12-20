@@ -2,13 +2,12 @@ import React from "react";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-
 // import BlogPosts from "../assets/BlogPosts";
 
 const prisma = new PrismaClient();
 
 export async function getStaticProps() {
-  const blogPosts = await prisma.BlogPost.findMany();
+  const blogPosts = await prisma.blogpost.findMany();
   return {
     props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
   };
