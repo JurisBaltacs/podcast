@@ -7,16 +7,17 @@ import ReactMarkdown from "react-markdown";
 const prisma = new PrismaClient();
 
 export async function getStaticProps() {
-  const blogPosts = await prisma.blogpost.findMany();
+  const blogPosts = await prisma.BlogPost.findMany();
   return {
     props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
   };
 }
 
 const Blog = ({ blogPosts }) => {
+  // console.log(blogPosts);
   return (
     <div className="w-[90%] md:w-[80%] mx-auto">
-      {blogPosts.map((post, title) => {
+      {blogPosts?.map((post, title) => {
         return (
           <div
             key={title}
