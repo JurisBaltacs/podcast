@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import EpisodeComponent from "../components/EpisodeComponent";
 import Slider from "../components/Slider";
@@ -28,7 +28,6 @@ const HomeScreen = ({ episodes }) => {
         <span className="hidden md:block font-bold text-2xl my-8 px-4">
           JAUNĀKĀS SĒRIJAS
         </span>
-
         <div className="hidden md:block flex-grow h-px bg-grey3"></div>
       </div>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-3">

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Card } from "flowbite-react";
 import AttributeComponent from "./AttributeComponent";
 import ShopContext from "../context/ShopContext";
 

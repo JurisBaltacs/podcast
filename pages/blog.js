@@ -1,17 +1,29 @@
 import React from "react";
+import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
-import BlogPosts from "../assets/BlogPosts";
+import ReactMarkdown from "react-markdown";
 
-const Blog = () => {
+// import BlogPosts from "../assets/BlogPosts";
+
+const prisma = new PrismaClient();
+
+export async function getStaticProps() {
+  const blogPosts = await prisma.BlogPost.findMany();
+  return {
+    props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
+  };
+}
+
+const Blog = ({ blogPosts }) => {
   return (
     <div className="w-[90%] md:w-[80%] mx-auto">
-      {BlogPosts.map((post, title) => {
+      {blogPosts.map((post, title) => {
         return (
           <div
             key={title}
             className="group mb-8 hover:shadow-xl rounded-md transition-all duration-300"
           >
-            <Link href={"blogpost/" + post.id}>
+            <Link href={"/blogpost/" + post.id}>
               <div className="flex">
                 <div className="min-w-[300px] rounded-l-md overflow-hidden transition-all duration-300 group-hover:brightness-75 cursor-pointer hidden md:block">
                   <img src={post.image} />
@@ -20,7 +32,9 @@ const Blog = () => {
                   <div className="font-bold leading-tight text-gray-900 text-lg">
                     {post.title}
                   </div>
-                  <div className="line-clamp-6 pr-4">{post.body}</div>
+                  <div className="line-clamp-[8] pr-4 mt-2">
+                    <ReactMarkdown>{post.body}</ReactMarkdown>
+                  </div>
                 </div>
               </div>
             </Link>

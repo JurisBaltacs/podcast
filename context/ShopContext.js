@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 
 const ShopContext = React.createContext();
 
-export const ShopContextProvider = ({ children }) => {
+export const ShopContextProvider = ({ children, blogPosts }) => {
   const [cartItems, setCartItems] = useState([]);
+
+  // console.log("blogPosts context", blogPosts);
 
   const saveCartItemsToLocalStorage = (cartItems) => {
     try {
@@ -65,6 +67,7 @@ export const ShopContextProvider = ({ children }) => {
         addItemToCart,
         updateCartItem,
         removeItemFromCart,
+        blogPosts,
       }}
     >
       {children}

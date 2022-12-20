@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
-import LinearProgress from "../../components/ActivityIndicator";
+import React from "react";
 import { PrismaClient } from "@prisma/client";
 import ReactAudioPlayer from "react-audio-player";
 import Facebook from "../../assets/facebook";
 import Twitter from "../../assets/twitter";
 import Youtube from "../../assets/youtube";
-// import CommentFormComponent from "../../components/CommentFormComponent";
+import CommentFormComponent from "../../components/CommentFormComponent";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
@@ -34,107 +31,67 @@ export async function getServerSideProps(context) {
 }
 
 const EpisodePage = ({ uniqueEpisode, comments }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [name, setName] = useState("");
-  const [comment, setComment] = useState("");
-
-  const router = useRouter();
-  const episodeId = uniqueEpisode.id;
-
-  const handleSubmit = (name, comment, episode_id) => {
-    axios
-      .post("/api/add-comment", {
-        name: name,
-        body: comment,
-        episode_id: episode_id,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    setIsLoading(true);
-  };
-
-  const handleCommentChange = (e) => {
-    setComment(e.target.value);
-  };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
   return (
     <div className="flex justify-center pt-10">
       <div className="w-[80%]">
-        {isLoading ? (
-          <LinearProgress />
-        ) : (
+        <div>
+          <div className="float-right pl-6">
+            <img className="rounded-lg w-[300px]" src={uniqueEpisode.image} />
+            <ReactAudioPlayer
+              src={uniqueEpisode.audio_preview_url}
+              controls
+              className="background: red"
+            />
+          </div>
+
+          <div className="text-3xl font-bold mb-8">{uniqueEpisode.name}</div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: uniqueEpisode.html_description,
+            }}
+          ></div>
+
+          <br />
+          <div className="mb-4">Baudi un dalies!</div>
+          <div className="flex space-x-4">
+            <Facebook />
+            <Twitter />
+            <Youtube />
+          </div>
+          <br />
           <div>
-            <div className="float-right pl-6">
-              <img className="rounded-lg w-[300px]" src={uniqueEpisode.image} />
-              <ReactAudioPlayer
-                src={uniqueEpisode.audio_preview_url}
-                controls
-                className="background: red"
-              />
-            </div>
+            <div className="text-2xl font-bold mb-8">Komentāri</div>
 
-            <div className="text-3xl font-bold mb-8">{uniqueEpisode.name}</div>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: uniqueEpisode.html_description,
-              }}
-            ></div>
-
-            <br />
-            <div className="mb-4">Baudi un dalies!</div>
-            <div className="flex space-x-4">
-              <Facebook />
-              <Twitter />
-              <Youtube />
-            </div>
-            <br />
             <div>
-              <div className="text-2xl font-bold mb-8">Komentāri</div>
-              <form
-                onSubmit={() => {
-                  handleSubmit(name, comment, episodeId);
-                  router.reload();
-                }}
-              >
-                <label>
-                  Vārds:
-                  <input
-                    className="placeholder-grey4 focus:placeholder-opacity-0"
-                    type="text"
-                    name="name"
-                    value={name}
-                    onChange={handleNameChange}
-                    placeholder="Vārds"
-                  />
-                </label>
-                <label>
-                  Komentārs:
-                  <input
-                    className="placeholder-grey4 focus:placeholder-opacity-0"
-                    type="text"
-                    name="body"
-                    value={comment}
-                    placeholder="Tavs komentārs"
-                    onChange={handleCommentChange}
-                  />
-                </label>
-                <input type="submit" value="Submit" />
-              </form>
-              <div>
+              <CommentFormComponent uniqueEpisode={uniqueEpisode} />
+              <div className="bg-gray-50 rounded-lg">
                 {comments.map((comment) => {
-                  return comment.body;
+                  // console.log(comments);
+
+                  const commentDate = comment.createdAt.replace(
+                    /(\T.*?\Z)/gi,
+                    ""
+                  );
+                  return (
+                    <div
+                      key={comment.id}
+                      className=" mx-2 border-b-2 last-of-type:border-b-0"
+                    >
+                      <div>
+                        <div className="text-grey1 font-bold text-xl pt-2">
+                          {comment.name}
+                        </div>
+
+                        <div className="text-xs text-grey2">{commentDate}</div>
+                        <div className="mt-2 pb-1">{comment.body}</div>
+                      </div>
+                    </div>
+                  );
                 })}
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

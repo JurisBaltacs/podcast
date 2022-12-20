@@ -60,7 +60,7 @@ const SubscribeForm = () => {
           />
 
           <input
-            className=" mb-2 w-5/6 text-grey1 mb-4 placeholder-grey4 focus:placeholder-opacity-0"
+            className="w-5/6 text-grey1 mb-4 placeholder-grey4 focus:placeholder-opacity-0"
             aria-label="epasts"
             name="email_address"
             placeholder="E-pasts"
