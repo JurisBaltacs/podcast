@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 const prisma = new PrismaClient();
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const blogPosts = await prisma.blogPost.findMany();
   return {
     props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
