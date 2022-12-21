@@ -4,9 +4,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 // import BlogPosts from "../assets/BlogPosts";
 
-const prisma = new PrismaClient();
-
-export async function getServerSideProps() {
+export async function getStaticProps() {
+  const prisma = new PrismaClient();
   const blogPosts = await prisma.blogPost.findMany();
   return {
     props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
