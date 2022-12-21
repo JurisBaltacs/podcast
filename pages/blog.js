@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 const prisma = new PrismaClient();
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const blogPosts = await prisma.blogPost.findMany();
   return {
     props: { blogPosts: JSON.parse(JSON.stringify(blogPosts)) },
@@ -34,6 +34,7 @@ const Blog = ({ blogPosts }) => {
                   </div>
                   <div className="line-clamp-[8] pr-4 mt-2">
                     <ReactMarkdown>{post.body}</ReactMarkdown>
+                    {/* {post.body} */}
                   </div>
                 </div>
               </div>
