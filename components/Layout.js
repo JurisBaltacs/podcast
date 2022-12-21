@@ -72,13 +72,13 @@ export default function Layout({ children }) {
               <Twitter isTopMenu={isTopMenu} />
               <Youtube isTopMenu={isTopMenu} />
             </div>
-            <div className="h-8 w-8 items-center mt-2">
-              <div className="w-6 h-6 rounded-full bg-red-500 absolute top-2 right-32"></div>
-              <div className="flex flex-wrap items-center gap-2"></div>
+            <div>
+              {/* <div className="flex flex-wrap items-center gap-2"></div> */}
               <Link href="/shoppingcart">
                 <Cart />
               </Link>
             </div>
+            <div className="w-6 h-6 rounded-full bg-red-500 relative bottom-3 ml-[-10px]"></div>
           </div>
           <div
             className="md:hidden flex items-center"

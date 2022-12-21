@@ -75,7 +75,7 @@ const EpisodePage = ({ uniqueEpisode, comments }) => {
                   return (
                     <div
                       key={comment.id}
-                      className=" mx-2 border-b-2 last-of-type:border-b-0"
+                      className="mx-2 border-b-2 last-of-type:border-b-0"
                     >
                       <div>
                         <div className="text-grey1 font-bold text-xl pt-2">
