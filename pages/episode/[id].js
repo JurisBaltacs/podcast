@@ -66,8 +66,6 @@ const EpisodePage = ({ uniqueEpisode, comments }) => {
               <CommentFormComponent uniqueEpisode={uniqueEpisode} />
               <div className="bg-gray-50 rounded-lg">
                 {comments.map((comment) => {
-                  // console.log(comments);
-
                   const commentDate = comment.createdAt.replace(
                     /(\T.*?\Z)/gi,
                     ""

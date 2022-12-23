@@ -1,32 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
-import ShopContext from "../context/ShopContext";
 import ShopItemCard from "../components/ShopItemCard";
 import { shopItemsObject } from "../assets/ShopItems";
 
 const Shop = () => {
-  const { addItemToCart } = useContext(ShopContext);
-
-  // const addToCart = () => {
-  //   const itemInCart = cartItems.find(
-  //     (item) => item.cartItemId === cartItems.cartItemId
-  //   );
-  //   if (!itemInCart) {
-  //     addItemToCart({
-  //       ...shopItemsObject,
-  //       quantity: 1,
-  //     });
-  //   } else {
-  //     updateCartItem({
-  //       ...itemInCart,
-  //       quantity: itemInCart.quantity + 1,
-  //     });
-  //   }
-  // };
-
-  const addToCart = (item) => {
-    addItemToCart(item);
-  };
 
   return (
     <div className="w-[80%] mx-auto mb-8">
@@ -34,7 +11,7 @@ const Shop = () => {
         {shopItemsObject.map((item) => (
           <Link href={"shopitem/" + item.id} key={item.id} className="mx-auto">
             <div>
-              <ShopItemCard item={item} addToCart={addToCart} />
+              <ShopItemCard item={item} />
             </div>
           </Link>
         ))}

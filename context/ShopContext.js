@@ -4,8 +4,8 @@ const ShopContext = React.createContext();
 
 export const ShopContextProvider = ({ children, blogPosts }) => {
   const [cartItems, setCartItems] = useState([]);
-
-  // console.log("blogPosts context", blogPosts);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const saveCartItemsToLocalStorage = (cartItems) => {
     try {
@@ -37,6 +37,7 @@ export const ShopContextProvider = ({ children, blogPosts }) => {
       }
       return item;
     });
+    saveCartItemsToLocalStorage(updatedCartItems);
     setCartItems(updatedCartItems);
   };
 
@@ -63,11 +64,14 @@ export const ShopContextProvider = ({ children, blogPosts }) => {
       value={{
         cartItems,
         setCartItems,
-        // shopItemsObject,
         addItemToCart,
         updateCartItem,
         removeItemFromCart,
         blogPosts,
+        selectedSize,
+        setSelectedSize,
+        selectedColor,
+        setSelectedColor,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
@@ -9,31 +9,42 @@ import Youtube from "../assets/youtube";
 import Cart from "../assets/cart";
 import Hamburger from "../assets/hamburger";
 import MobileMenuComponent from "./MobileMenuComponent";
+import ShopContext from "../context/ShopContext";
 
 const categories = [
   { name: "GALVENĀ", path: "/" },
-  { name: "PAR MANI", path: "/about" },
+  { name: "PAR PROJEKTU", path: "/about" },
   { name: "BLOGS", path: "/blog" },
   { name: "VEIKALS", path: "/shop" },
 ];
 
 export default function Layout({ children }) {
+  const { cartItems } = useContext(ShopContext);
   const [isClosed, setClosed] = useState(true);
+
   const router = useRouter();
-
   var classNames = require("classnames");
-
   const isTopMenu = !!router;
+  const isItemInCart = cartItems.length > 0;
 
-  const toggleMobileMenu = () => {
-    setClosed(!isClosed);
+  const findQuantity = () => {
+    let totalQuantity = 0;
+    cartItems.forEach((item) => {
+      totalQuantity = totalQuantity + item.quantity;
+    });
+    return totalQuantity;
   };
+
+  let totalQuantity = findQuantity();
+
   return (
     // <div onClick={() => toggleMobileMenu()}> #TODO: Vai var būt divi onClick toggle eventi? Šis ne vienmēr nostrādā.
     <div>
       <div className="relative mx-auto">
         <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6">
-          <Logo />
+          <Link href={"/"}>
+            <Logo />
+          </Link>
 
           <div className="flex flex-row static">
             {categories.map((category, index) => (
@@ -73,16 +84,26 @@ export default function Layout({ children }) {
               <Youtube isTopMenu={isTopMenu} />
             </div>
             <div>
-              {/* <div className="flex flex-wrap items-center gap-2"></div> */}
+              {/* #TODO: Salikt, cart un bumbuli vienā <link> tagā */}
               <Link href="/shoppingcart">
                 <Cart />
               </Link>
             </div>
-            <div className="w-6 h-6 rounded-full bg-red-500 relative bottom-3 ml-[-10px]"></div>
+
+            <Link href="/shoppingcart">
+              <div
+                style={{ opacity: isItemInCart ? 1 : 0 }}
+                className="w-6 h-6 rounded-full bg-red-500 relative bottom-3 ml-[-10px] pl-2 font-bold text-white"
+              >
+                <div className="flex justify-center translate-x-[-27%]">
+                  {totalQuantity}
+                </div>
+              </div>
+            </Link>
           </div>
           <div
             className="md:hidden flex items-center"
-            onClick={() => toggleMobileMenu()}
+            onClick={() => setClosed(!isClosed)}
           >
             <Hamburger />
           </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import { shopItemsObject } from "../../assets/ShopItems";
-// import ShopItemCard from "../../components/ShopItemCard";
 import ItemDetails from "../../components/ItemDetails";
 
 export async function getServerSideProps(context) {

@@ -1,8 +1,9 @@
 // #TODO: ShopItemsObject būs jāņem no DB
 export const shopItemsObject = [
   {
-    type: "shirt",
-    price: "50,00 EUR",
+    type: "krekls",
+    currency: "EUR",
+    price: 50,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "1",
     description:
@@ -23,9 +24,10 @@ export const shopItemsObject = [
     ],
   },
   {
-    type: "shorts",
+    type: "šorti",
 
-    price: "22,00 EUR",
+    currency: "EUR",
+    price: 22,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "2",
     description:
@@ -46,9 +48,10 @@ export const shopItemsObject = [
     ],
   },
   {
-    type: "hat",
+    type: "cepure",
 
-    price: "5,00 EUR",
+    currency: "EUR",
+    price: 5,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "3",
     description:
@@ -65,9 +68,10 @@ export const shopItemsObject = [
     ],
   },
   {
-    type: "pants",
+    type: "bikses",
 
-    price: "50,00 EUR",
+    currency: "EUR",
+    price: 50,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "4",
     description:
@@ -89,8 +93,9 @@ export const shopItemsObject = [
   },
 
   {
-    type: "mug",
-    price: "22,00 EUR",
+    type: "krūze",
+    currency: "EUR",
+    price: 22,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "5",
     description:
@@ -107,8 +112,9 @@ export const shopItemsObject = [
     ],
   },
   {
-    type: "notebook",
-    price: "5,00 EUR",
+    type: "burtnīca",
+    currency: "EUR",
+    price: 5,
     image: "https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4",
     id: "6",
     description:

@@ -70,7 +70,7 @@ const SubscribeForm = () => {
             value={email}
           />
         </div>
-        <button className="bg-orange1 mt-2 rounded-md text-14 font-bold transition ease-in-out w-32 py-2 hover:bg-grey5">
+        <button className="bg-orange1 mt-2 rounded-md text-14 font-bold transition duration-300 w-32 py-2 hover:bg-grey5">
           PIETEIKTIES
         </button>
       </form>

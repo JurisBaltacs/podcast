@@ -3,25 +3,120 @@ import AttributeComponent from "./AttributeComponent";
 import ShopContext from "../context/ShopContext";
 
 const ShoppingCartItemComponent = ({ item }) => {
-  const { removeItemFromCart } = useContext(ShopContext);
+  const { removeItemFromCart, updateCartItem } = useContext(ShopContext);
   const attributes = item.attributes || [];
 
+  <button
+    onClick={() => {
+      if (item.quantity <= 1) {
+        removeItemFromCart(item.id);
+      } else {
+        updateCartItem({
+          ...item,
+          quantity: item.quantity - 1,
+        });
+      }
+    }}
+  >
+    -
+  </button>;
+
   return (
-    <div className="grid grid-cols-12 mb-4 border-b-[1px] first-of-type:border-t-[1px] first-of-type:pt-4">
-      <img src={item.image} className="col-span-2 col-start-3 w-[250px]" />
-      <div className="col-start-5 pl-4">
-        <div className="text-xl font-semibold tracking-tight text-grey1">
-          {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+    <div className="grid grid-cols-12 mb-4 border-b-[1px] first-of-type:border-t-[1px] first-of-type:pt-4 pb-4">
+      <div className="flex col-span-2 col-start-2">
+        <img src={item.image} className=" rounded-md" />
+        <div className="mr-6 flex flex-col justify-between items-center ml-4">
+          <button
+            className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
+            onClick={() =>
+              updateCartItem({
+                ...item,
+                quantity: item.quantity + 1,
+              })
+            }
+          >
+            +
+          </button>
+          <div>{item.quantity}</div>
+          <button
+            className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
+            onClick={() => {
+              if (item.quantity <= 1) {
+                removeItemFromCart(item.id);
+              } else {
+                updateCartItem({
+                  ...item,
+                  quantity: item.quantity - 1,
+                });
+              }
+            }}
+          >
+            -
+          </button>
         </div>
-        <div className="text-base font-bold text-grey1 pb-2">{item.price}</div>
       </div>
-      <div className="col-start-8 col-span-2">
-        <AttributeComponent attributes={attributes} />
-        <div
-          onClick={() => removeItemFromCart(item.id)}
-          className="rounded-lg bg-grey1 px-5 py-1 mt-4 text-center text-sm font-medium text-white hover:bg-orange1 transition-all duration-300 cursor-pointer"
-        >
-          Izņemt
+
+      <div className="col-start-10 col-span-2 flex flex-col">
+        <div>
+          <div className="text-xl font-semibold tracking-tight text-grey1">
+            {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+          </div>
+          <div className="text-base font-bold text-grey1 pb-2">
+            {(item.price * item.quantity).toFixed(2)} &nbsp;
+            {item.currency}
+          </div>
+        </div>
+        <div className="flex-col">
+          {attributes.map((attribute, index) => {
+            if (attribute.id === "size") {
+              return (
+                <div key={index}>
+                  {attribute.id.toUpperCase()}
+                  <div className="flex">
+                    {attribute.items.map((attributeItem) => {
+                      return (
+                        <AttributeComponent
+                          attributes={attributeItem.value}
+                          key={attributeItem.value}
+                          selected={attributeItem.value === item.selectedSize}
+                          onClick={() =>
+                            updateCartItem({
+                              ...item,
+                              selectedSize: attributeItem.value,
+                            })
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            } else if (attribute.id === "color") {
+              return (
+                <div key={index}>
+                  {attribute.id.toUpperCase()}
+                  <div className="flex">
+                    {attribute.items.map((attributeItem) => {
+                      return (
+                        <AttributeComponent
+                          attributes={attributeItem.value}
+                          key={attributeItem.value}
+                          isColor={true}
+                          selected={attributeItem.value === item.selectedColor}
+                          onClick={() =>
+                            updateCartItem({
+                              ...item,
+                              selectedColor: attributeItem.value,
+                            })
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

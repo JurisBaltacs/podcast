@@ -2,7 +2,6 @@ import React from "react";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-// import BlogPosts from "../assets/BlogPosts";
 
 const prisma = new PrismaClient();
 
@@ -14,7 +13,6 @@ export async function getStaticProps() {
 }
 
 const Blog = ({ blogPosts }) => {
-  // console.log("blogPosts", blogPosts);
   return (
     <div className="w-[90%] md:w-[80%] mx-auto">
       {blogPosts.map((post, title) => {

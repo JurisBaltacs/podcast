@@ -43,7 +43,7 @@ const CommentFormComponent = ({ uniqueEpisode }) => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Vārds"
             />
-            <div className="px-4 py-2 bg-white rounded-t-lg placeholder-grey4 focus:placeholder-opacity-0">
+            <div className="px-4 py-2 bg-white placeholder-grey4 focus:placeholder-opacity-0">
               <textarea
                 rows="3"
                 className="w-full px-0 text-sm placeholder-grey4 focus:placeholder-opacity-0 text-grey1 bg-white border-0 focus:ring-0 min-h-[40px]"
