@@ -25,8 +25,10 @@
     "next": "13.0.6",
     "react": "18.2.0",
     "react-audio-player": "^0.17.0",
+    "react-custom-scroll": "^4.4.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.4",
+    "react-perfect-scrollbar": "^1.5.8",
     "react-slick": "^0.29.0"
   },
   "devDependencies": {

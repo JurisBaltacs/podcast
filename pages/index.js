@@ -24,7 +24,6 @@ const HomeScreen = ({ episodes }) => {
       </div>
       <div className="flex items-center py-4">
         <div className="hidden md:block flex-grow h-px bg-grey3"></div>
-
         <span className="hidden md:block font-bold text-2xl my-8 px-4">
           JAUNĀKĀS SĒRIJAS
         </span>

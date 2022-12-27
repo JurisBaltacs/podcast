@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
-import Logo from "../assets/Logo";
+import SDLogo from "../assets/sd-logo.png";
 import Facebook from "../assets/facebook";
 import Twitter from "../assets/twitter";
 import Youtube from "../assets/youtube";
@@ -37,13 +38,15 @@ export default function Layout({ children }) {
 
   let totalQuantity = findQuantity();
 
+  // console.log(SDLogo.src);
+
   return (
     // <div onClick={() => toggleMobileMenu()}> #TODO: Vai var būt divi onClick toggle eventi? Šis ne vienmēr nostrādā.
     <div>
       <div className="relative mx-auto">
         <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6">
           <Link href={"/"}>
-            <Logo />
+            <Image src={SDLogo} width="150" height="50" />
           </Link>
 
           <div className="flex flex-row static">

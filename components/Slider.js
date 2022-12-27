@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import EpisodeComponent from "./EpisodeComponent";
-// import "./styles.css";
 
 export default ({ episodes }) => {
   const [sliderRef, instanceRef] = useKeenSlider({

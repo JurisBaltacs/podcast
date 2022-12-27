@@ -27,10 +27,10 @@ const Blog = ({ blogPosts }) => {
                   <img src={post.image} />
                 </div>
                 <div className="ml-4">
-                  <div className="font-bold leading-tight text-gray-900 text-lg">
+                  <div className="font-bold leading-tight text-gray-900 text-2xl">
                     {post.title}
                   </div>
-                  <div className="line-clamp-[8] pr-4 mt-2">
+                  <div className="line-clamp-[5] pr-4 mt-2 ">
                     <ReactMarkdown>{post.body}</ReactMarkdown>
                   </div>
                 </div>

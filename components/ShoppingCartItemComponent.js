@@ -71,7 +71,7 @@ const ShoppingCartItemComponent = ({ item }) => {
             if (attribute.id === "size") {
               return (
                 <div key={index}>
-                  {attribute.id.toUpperCase()}
+                  Izmērs
                   <div className="flex">
                     {attribute.items.map((attributeItem) => {
                       return (
@@ -94,7 +94,7 @@ const ShoppingCartItemComponent = ({ item }) => {
             } else if (attribute.id === "color") {
               return (
                 <div key={index}>
-                  {attribute.id.toUpperCase()}
+                  Krāsa
                   <div className="flex">
                     {attribute.items.map((attributeItem) => {
                       return (
