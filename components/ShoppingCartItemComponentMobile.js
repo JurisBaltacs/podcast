@@ -22,22 +22,10 @@ const ShoppingCartItemComponent = ({ item }) => {
   </button>;
 
   return (
-    <div className="grid grid-cols-12 mb-4 border-b-[1px] first-of-type:border-t-[1px] first-of-type:pt-4 pb-4 h-72">
-      <div className="flex col-span-4 lg:col-span-3 col-start-2">
+    <div className="grid grid-cols-12 pb-4 mb-4 border-b-[1px] first-of-type:border-t-[1px]">
+      <div className="flex-col col-span-12 row-start-1 row-end-6 pb-4">
         <img src={item.image} className="object-cover rounded-md" />
-        <div className="mr-6 flex flex-col justify-between items-center ml-4">
-          <button
-            className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
-            onClick={() =>
-              updateCartItem({
-                ...item,
-                quantity: item.quantity + 1,
-              })
-            }
-          >
-            +
-          </button>
-          <div>{item.quantity}</div>
+        <div className="mr-4 flex flex-row justify-between items-center ml-4 mt-2">
           <button
             className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
             onClick={() => {
@@ -53,26 +41,39 @@ const ShoppingCartItemComponent = ({ item }) => {
           >
             -
           </button>
+          <div>{item.quantity}</div>
+
+          <button
+            className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
+            onClick={() =>
+              updateCartItem({
+                ...item,
+                quantity: item.quantity + 1,
+              })
+            }
+          >
+            +
+          </button>
         </div>
       </div>
 
-      <div className="col-start-8 md:col-start-10 col-span-2 flex flex-col">
-        <div>
-          <div className="text-xl font-semibold tracking-tight text-grey1">
-            {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
-          </div>
-          <div className="text-base font-bold text-grey1 pb-2">
-            {(item.price * item.quantity).toFixed(2)} &nbsp;
-            {item.currency}
+      <div className="row-start-8 flex flex-col col-span-12">
+        <div className="text-xl font-semibold tracking-tight text-grey1 ">
+          <div className="grid grid-cols-6">
+            <div>{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</div>
+            <div className="col-start-5">
+              {(item.price * item.quantity).toFixed(2)}&nbsp;
+              {item.currency}
+            </div>
           </div>
         </div>
-        <div className="flex-col">
+        <div className="flex">
           {attributes.map((attribute, index) => {
             if (attribute.id === "size") {
               return (
                 <div key={index}>
                   Izmērs
-                  <div className="flex">
+                  <div className="flex mt-1">
                     {attribute.items.map((attributeItem) => {
                       return (
                         <AttributeComponent
@@ -95,7 +96,7 @@ const ShoppingCartItemComponent = ({ item }) => {
               return (
                 <div key={index}>
                   Krāsa
-                  <div className="flex">
+                  <div className="flex mt-1">
                     {attribute.items.map((attributeItem) => {
                       return (
                         <AttributeComponent

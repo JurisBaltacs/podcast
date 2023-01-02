@@ -22,7 +22,7 @@ const Blog = ({ blogPosts }) => {
             className="group mb-8 hover:shadow-xl rounded-none md:rounded-md transition-all duration-300 md:border-b-0 border-b-2 last-of-type:border-b-0 pb-4 md:pb-0"
           >
             <Link href={"/blogpost/" + post.id}>
-              <div className="flex">
+              <div className="flex h-40 md:h-44">
                 <div className="min-w-[300px] rounded-l-md overflow-hidden transition-all duration-300 group-hover:brightness-75 cursor-pointer hidden md:block">
                   <img src={post.image} />
                 </div>
@@ -30,7 +30,7 @@ const Blog = ({ blogPosts }) => {
                   <div className="font-bold leading-tight text-gray-900 text-2xl">
                     {post.title}
                   </div>
-                  <div className="line-clamp-[5] pr-4 mt-2 ">
+                  <div className="line-clamp-[4] md:line-clamp-[3] pr-4 mt-2 ">
                     <ReactMarkdown>{post.body}</ReactMarkdown>
                   </div>
                 </div>

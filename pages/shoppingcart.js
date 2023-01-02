@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ShopContext from "../context/ShopContext";
 import ShoppingCartItemComponent from "../components/ShoppingCartItemComponent";
+import ShoppingCartItemComponentMobile from "../components/ShoppingCartItemComponentMobile";
 
 const ShoppingCart = () => {
   const { cartItems } = useContext(ShopContext);
@@ -24,16 +25,23 @@ const ShoppingCart = () => {
   if (cartItems.length > 0) {
     return (
       <div className="w-[80%] mx-auto ">
-        <div>
+        <div className="max-md:hidden">
           {cartItems.map((item, index) => {
             return <ShoppingCartItemComponent item={item} key={index} />;
           })}
         </div>
+        <div className="md:hidden">
+          {cartItems.map((item, index) => {
+            return <ShoppingCartItemComponentMobile item={item} key={index} />;
+          })}
+        </div>
         <div className="grid grid-cols-12 grid-rows-2">
           <div className="col-start-1">Daudzums:</div>
-          <div className="font-semibold">{totalQuantity}</div>
+          <div className="font-semibold col-start-5 md:col-start-3">
+            {totalQuantity}
+          </div>
           <div className="col-start-1">Kopā:</div>
-          <div className="font-semibold">
+          <div className="font-semibold col-start-5 md:col-start-3 col-span-6">
             {totalPrice.toFixed(2)} &nbsp;
             {currency}
           </div>

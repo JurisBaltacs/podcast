@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import SDLogo from "../assets/sd-logo.png";
+import SDLogoSmall from "../assets/sd-logo-small.png";
 import Facebook from "../assets/facebook";
 import Twitter from "../assets/twitter";
 import Youtube from "../assets/youtube";
@@ -11,6 +12,7 @@ import Cart from "../assets/cart";
 import Hamburger from "../assets/hamburger";
 import MobileMenuComponent from "./MobileMenuComponent";
 import ShopContext from "../context/ShopContext";
+import CloseIcon from "../assets/closeIcon";
 
 const categories = [
   { name: "GALVENĀ", path: "/" },
@@ -38,15 +40,23 @@ export default function Layout({ children }) {
 
   let totalQuantity = findQuantity();
 
-  // console.log(SDLogo.src);
-
   return (
-    // <div onClick={() => toggleMobileMenu()}> #TODO: Vai var būt divi onClick toggle eventi? Šis ne vienmēr nostrādā.
     <div>
       <div className="relative mx-auto">
         <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6">
           <Link href={"/"}>
-            <Image src={SDLogo} width="150" height="50" />
+            <Image
+              src={SDLogo}
+              width="150"
+              height="50"
+              className="rounded-md overflow-hidden max-md:hidden"
+            />
+            <Image
+              src={SDLogoSmall}
+              width="40"
+              height="40"
+              className="rounded-md overflow-hidden md:hidden"
+            />
           </Link>
 
           <div className="flex flex-row static">
@@ -76,7 +86,10 @@ export default function Layout({ children }) {
                 { hidden: isClosed }
               )}
             >
-              <MobileMenuComponent categories={categories} />
+              <MobileMenuComponent
+                categories={categories}
+                onClick={() => setClosed(true)}
+              />
             </div>
           </div>
           <div className="flex absolute md:static">
@@ -108,7 +121,7 @@ export default function Layout({ children }) {
             className="md:hidden flex items-center"
             onClick={() => setClosed(!isClosed)}
           >
-            <Hamburger />
+            {isClosed ? <Hamburger /> : <CloseIcon />}
           </div>
         </div>
       </div>
