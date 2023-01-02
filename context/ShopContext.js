@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 
 const ShopContext = React.createContext();
 
-export const ShopContextProvider = ({ children, blogPosts }) => {
+export const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
+  const [blogPostsContext, setBlogPostsContext] = useState(null);
 
   const saveCartItemsToLocalStorage = (cartItems) => {
     try {
@@ -67,7 +68,8 @@ export const ShopContextProvider = ({ children, blogPosts }) => {
         addItemToCart,
         updateCartItem,
         removeItemFromCart,
-        blogPosts,
+        blogPostsContext,
+        setBlogPostsContext,
         selectedSize,
         setSelectedSize,
         selectedColor,

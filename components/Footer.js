@@ -2,6 +2,7 @@ import React from "react";
 import SubscribeForm from "./SubscribeForm";
 import BlogPreviewComponent from "./BlogPreviewComponent";
 import AboutFooter from "./AboutFooter";
+// import Blog from "../pages/blog";
 
 const Footer = () => {
   return (
@@ -12,6 +13,7 @@ const Footer = () => {
         </div>
         <div className="mb-2">
           <BlogPreviewComponent />
+          {/* <Blog /> */}
         </div>
         <div className="mb-2">
           <SubscribeForm />
