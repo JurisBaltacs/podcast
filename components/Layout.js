@@ -119,7 +119,7 @@ export default function Layout({ children }) {
           </Link>
         </div>
         <div
-          className="md:hidden flex items-center"
+          className="md:hidden flex items-center cursor-pointer"
           onClick={() => setClosed(!isClosed)}
         >
           {isClosed ? <Hamburger /> : <CloseIcon />}

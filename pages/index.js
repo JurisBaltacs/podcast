@@ -7,16 +7,18 @@ const prisma = new PrismaClient();
 
 export async function getStaticProps() {
   const episodes = await prisma.episode.findMany();
+
   return {
     props: { episodes },
   };
 }
 
-const HomeScreen = ({ episodes }) => {
+const HomeScreen = ({ episodes, blogPosts }) => {
   const [episodeNo, setEpisodeNo] = useState(6);
   const loadMore = () => {
     setEpisodeNo(episodeNo + 9);
   };
+
   return (
     <div className="w-[80%] mx-auto">
       <div className="hidden md:block">

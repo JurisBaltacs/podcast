@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import ShopContext from "../context/ShopContext";
 
 const prisma = new PrismaClient();
 
@@ -14,12 +13,6 @@ export async function getStaticProps() {
 }
 
 const Blog = ({ blogPosts }) => {
-  const { setBlogPostsContext } = useContext(ShopContext);
-
-  useEffect(() => {
-    setBlogPostsContext(blogPosts);
-  }, []);
-
   return (
     <div className="w-[90%] md:w-[80%] mx-auto">
       {blogPosts.map((post, title) => {
