@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import subscribeFormSchema from "../schemas/SubscribeFormSchema";
+import subscribeFormSchema from "../schemas/subscribeFormSchema";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
