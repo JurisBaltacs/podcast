@@ -35,20 +35,3 @@ model BlogPost {
   createdAt DateTime @default(now())
   image     String   @default("https://i.scdn.co/image/40fd095d2298fc84ae0a81c2bfb930951d3e8cb4")
 }
-
-// model Comment {
-//   id        Int      @id @default(autoincrement())
-//   name      String
-//   body      String
-//   post      BlogPost @relation(fields: [post_id], references: [id])
-//   post_id   Int
-//   createdAt DateTime @default(now())
-// }
-
-// model BlogPost {
-//   id        Int       @id @default(autoincrement())
-//   title     String
-//   body      String
-//   comments  Comment[]
-//   createdAt DateTime  @default(now())
-// }

@@ -66,10 +66,10 @@ export default function Layout({ children }) {
               className="font-bold text-grey1 m-1 hover:text-orange1 w-100 transition-all duration-300"
               key={index}
             >
-              {/* #TODO: Vai šo active klasi nevar noteikt vienkāršāk? */}
               <Link
                 href={category.path}
-                className={classNames("hidden md:block m-4 border-orange1", {
+                className={classNames("hidden md:block m-2 border-orange1", {
+                  // Check if category is selected and add border if yes.
                   "border-b-2": router.pathname === category.path,
                 })}
               >
@@ -83,7 +83,6 @@ export default function Layout({ children }) {
           <div
             className={classNames(
               "absolute flex-col items-center self-end py-8 mt-8 space-y-6 font-bold bg-white right-0 drop-shadow-md z-10 w-72",
-              // #TODO: Ielikt smukāku transition mobile menu. Check @media in Layout.module.css
               { hidden: isClosed }
             )}
           >
@@ -95,13 +94,12 @@ export default function Layout({ children }) {
         </div>
         <div className="flex absolute md:static">
           <div className="flex space-x-4 mr-2 items-center border-r-2 pr-2">
-            {/* #TODO: Is there a more elegant way to make icons switch collors between top and bottom menu? */}
+            {/* isTopMenu prop shows the icons that they are in the top menu and not in the footer. That is required for different styles*/}
             <Facebook isTopMenu={isTopMenu} />
             <Twitter isTopMenu={isTopMenu} />
             <Youtube isTopMenu={isTopMenu} />
           </div>
           <div>
-            {/* #TODO: Salikt, cart un bumbuli vienā <link> tagā */}
             <Link href="/shoppingcart">
               <Cart />
             </Link>

@@ -67,6 +67,7 @@ const ShoppingCartItemComponent = ({ item }) => {
           </div>
         </div>
         <div className="flex-col">
+          {/* Map through attributes of shop items and pass the corresponding attribute to AttributeComponent*/}
           {attributes.map((attribute, index) => {
             if (attribute.id === "size") {
               return (

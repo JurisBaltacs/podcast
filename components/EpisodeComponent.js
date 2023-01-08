@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const EpisodeComponent = ({ episode, description, isSlider }) => {
+  // Convert milliseconds to minutes and seconds to be displayed.
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
@@ -14,6 +15,7 @@ const EpisodeComponent = ({ episode, description, isSlider }) => {
       <Link href={"episode/" + episode.id}>
         <div className="relative">
           <div
+          // Only show episode duration when component is in Slider
             className={classNames(
               "flex bg-orange1 rounded-md text-white w-16 justify-center text-xs absolute bottom-4 left-[50%] transform -translate-x-1/2 z-10 transition-all duration-300 hover:bg-black1",
               { hidden: !isSlider }

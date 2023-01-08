@@ -8,8 +8,6 @@ import CommentFormComponent from "../../components/CommentFormComponent";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
-  // #TODO: findMany() noderēs pie static props
-  // const episodes = await prisma.episode.findMany();
 
   const { params } = context;
 

@@ -1,8 +1,4 @@
 import React, { useContext, useState } from "react";
-// import { Scrollbars } from "react-custom-scrollbars-2";
-// import PerfectScrollbar from 'perfect-scrollbar';
-// import SimpleBar from "simplebar-react";
-// import CustomScroll from "react-custom-scroll";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import AttributeComponent from "./AttributeComponent";
@@ -17,6 +13,7 @@ const ItemDetails = ({ shopItem, selected }) => {
 
   const addToCart = () => {
     const itemInCart = cartItems.find(
+      // Check if cart already contains this item with selected attributes
       (item) =>
         item.productId === shopItem.id &&
         item.selectedColor === selectedColor &&
@@ -38,24 +35,19 @@ const ItemDetails = ({ shopItem, selected }) => {
     }
   };
 
-  // console.log("shopItem", shopItem);
+  // checkIfAllAttributesSet function is used to validate if item can be added to cart.
   const checkIfAllAttributesSet = () => {
     const attributes = shopItem.attributes || [];
     let isAttributeSet = true;
 
-    // console.log(attributes);
-
     attributes.forEach((attribute) => {
       if (attribute.id === "size" && !selectedSize) isAttributeSet = false;
       if (attribute.id === "color" && !selectedColor) isAttributeSet = false;
-      // isAttributeSet = false;
     });
     return isAttributeSet;
   };
 
   const isAttributeSet = checkIfAllAttributesSet();
-
-  // console.log("isAttributeSet", isAttributeSet);
 
   return (
     <div className="flex md:flex-row flex-col justify-center">
@@ -71,6 +63,7 @@ const ItemDetails = ({ shopItem, selected }) => {
         </div>
         <div className="flex justify-between">
           <div>
+            {/* Map through attributes of items in the shop and pass the corresponding attribute to the AttributeComponent component*/}
             {shopItem.attributes.map((attribute, index) => {
               if (attribute.id === "color") {
                 return (

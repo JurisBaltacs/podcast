@@ -1,81 +1,71 @@
-import React, { useState } from "react";
+import { useFormik } from "formik";
+import subscribeFormSchema from "../schemas/SubscribeFormSchema";
 
-// Code taken from: https://pragmaticpineapple.com/add-newsletter-subscription-form-to-react-website/
+const onSubmit = async (values, actions) => {
+  console.log(values);
+  console.log(actions);
+  actions.resetForm();
+};
 
-const SubscribeForm = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+const BasicForm = () => {
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        name: "",
+      },
+      validationSchema: subscribeFormSchema,
+      onSubmit,
+    });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const FORM_URL = `your form URL, we will describe it in a sec`;
-
-    const data = new FormData(event.target);
-
-    try {
-      const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
-        headers: {
-          accept: "application/json",
-        },
-      });
-      const json = await response.json();
-
-      if (json.status === "success") {
-        return;
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const handleSubmitAlert = (name) => {
+    alert(
+      `${name} nesaņems e-pastu, jo šī lapa ir daļa no Jura Baltača programmēšanas portfolio. Ja Tev interesē podkāsts, meklē 'Svarīgās detaļas' Spotify.`
+    );
   };
 
-  const handleEmailChange = (event) => {
-    const { value } = event.target;
-    setEmail(value);
-  };
-
-  const handleNameChange = (event) => {
-    const { value } = event.target;
-    setName(value);
-  };
-  // #TODO: Pielikt e-pasta validation.
   return (
     <div className="pl-4">
       <div className="font-black text-2xl md:mb-4">PIESAKIES JAUNUMIEM</div>
-      <div className="text-grey6 mb-4">
-        Saņem jaunākās sērijas e-pastā. Nekāda spama!
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <input
-            className="mt-2 mb-2 w-5/6 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
-            aria-label="vards"
-            name="fields[first_name]"
-            placeholder="Vārds"
-            type="text"
-            onChange={handleNameChange}
-            value={name}
-          />
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label htmlFor="name"></label>
+        <input
+          value={values.name}
+          onChange={handleChange}
+          id="name"
+          type="name"
+          placeholder="Vārds"
+          onBlur={handleBlur}
+          className="mt-2 pl-3 w-5/6 h-10 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
+        />
 
-          <input
-            className="w-5/6 text-grey1 mb-4 placeholder-grey4 focus:placeholder-opacity-0"
-            aria-label="epasts"
-            name="email_address"
-            placeholder="E-pasts"
-            required
-            type="email"
-            onChange={handleEmailChange}
-            value={email}
-          />
-        </div>
-        <button className="bg-orange1 mt-2 rounded-md text-14 font-bold transition duration-300 w-32 py-2 hover:bg-grey5">
+        {errors.name && touched.name && (
+          <p className="text-orange1 text-sm">{errors.name}</p>
+        )}
+        <label htmlFor="email"></label>
+        <input
+          value={values.email}
+          onChange={handleChange}
+          id="email"
+          type="email"
+          placeholder="E-pasts"
+          onBlur={handleBlur}
+          className="w-5/6 text-grey1 h-10 placeholder-grey4 focus:placeholder-opacity-0 mt-2"
+        />
+
+        {errors.email && touched.email && (
+          <p className="text-orange1 text-sm">{errors.email}</p>
+        )}
+
+        <button
+          onClick={() => handleSubmitAlert(values.name || "Anonīmais cilvēks")}
+          type="submit"
+          className="bg-orange1 mt-2 rounded-md font-bold transition duration-300 w-32 py-2 hover:bg-grey5"
+        >
           PIETEIKTIES
         </button>
       </form>
     </div>
   );
 };
-
-export default SubscribeForm;
+export default BasicForm;

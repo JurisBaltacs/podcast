@@ -38,7 +38,6 @@ const CommentFormComponent = ({ uniqueEpisode }) => {
               type="text"
               name="name"
               value={name}
-              // #TODO: required atribūts nestrādā. Salabot.
               required
               onChange={(e) => setName(e.target.value)}
               placeholder="Vārds"
@@ -48,7 +47,6 @@ const CommentFormComponent = ({ uniqueEpisode }) => {
                 rows="3"
                 className="w-full px-0 text-sm placeholder-grey4 focus:placeholder-opacity-0 text-grey1 bg-white border-0 focus:ring-0 min-h-[40px]"
                 placeholder="Vieta komentāram"
-                // #TODO: required atribūts nestrādā. Salabot.
                 required
                 onChange={(e) => setComment(e.target.value)}
               />
