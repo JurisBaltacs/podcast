@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 
 const ShopContext = React.createContext();
 
-const shopItemsObject = [
-  { type: "shirt", size: "L", color: "white", price: "50 USD", id: "1" },
-  { type: "shorts", size: "XS", color: "black", price: "22 USD", id: "2" },
-  { type: "hat", size: "M", color: "MAGA-red", price: "5 USD", id: "3" },
-];
 export const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [blogPostsContext, setBlogPostsContext] = useState(null);
+
+  const saveCartItemsToLocalStorage = (cartItems) => {
+    try {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
 
   const addItemToCart = (item) => {
     const id = cartItems.length
@@ -21,13 +26,11 @@ export const ShopContextProvider = ({ children }) => {
       productId: item.id,
       id,
     };
-    console.log("cartItems in context", cartItems);
-    // #TODO: Ja izmantoju šo updatedCartItems, tad error, ka cartItems not iterable
     const updatedCartItems = [...cartItems, itemWithId];
-    // saveCartItemsToLocalStorage(updatedCartItems);
+    saveCartItemsToLocalStorage(updatedCartItems);
     setCartItems(updatedCartItems);
-    // setCartItems({ ...cartItems, itemWithId });
   };
+
   const updateCartItem = (updatedData) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item.id === updatedData.id) {
@@ -35,19 +38,42 @@ export const ShopContextProvider = ({ children }) => {
       }
       return item;
     });
-    // this.saveCartItemsToLocalStorage(updatedCartItems);
-    setCartItems({ cartItems: updatedCartItems });
+    saveCartItemsToLocalStorage(updatedCartItems);
+    setCartItems(updatedCartItems);
   };
+
+  const removeItemFromCart = (productId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== productId);
+    saveCartItemsToLocalStorage(updatedCartItems);
+    setCartItems(updatedCartItems);
+  };
+
+  useEffect(() => {
+    const cartItemsFromLocalStorage = localStorage.getItem("cartItems");
+    if (cartItemsFromLocalStorage) {
+      try {
+        const parsedCartItems = JSON.parse(cartItemsFromLocalStorage);
+        setCartItems(parsedCartItems);
+      } catch (error) {
+        console.log("error: ", error);
+      }
+    }
+  }, []);
+
   return (
     <ShopContext.Provider
       value={{
         cartItems,
         setCartItems,
-        shopItemsObject,
         addItemToCart,
         updateCartItem,
-        isLoading,
-        setLoading,
+        removeItemFromCart,
+        blogPostsContext,
+        setBlogPostsContext,
+        selectedSize,
+        setSelectedSize,
+        selectedColor,
+        setSelectedColor,
       }}
     >
       {children}

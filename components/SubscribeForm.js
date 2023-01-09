@@ -1,78 +1,71 @@
-import React, { useState } from "react";
+import { useFormik } from "formik";
+import subscribeFormSchema from "../schemas/subscribeFormSchema";
 
+const onSubmit = async (values, actions) => {
+  console.log(values);
+  console.log(actions);
+  actions.resetForm();
+};
 
-// Code taken from: https://pragmaticpineapple.com/add-newsletter-subscription-form-to-react-website/
+const BasicForm = () => {
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        name: "",
+      },
+      validationSchema: subscribeFormSchema,
+      onSubmit,
+    });
 
-const SubscribeForm = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const FORM_URL = `your form URL, we will describe it in a sec`;
-
-    const data = new FormData(event.target);
-
-    try {
-      const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
-        headers: {
-          accept: "application/json",
-        },
-      });
-      const json = await response.json();
-
-      if (json.status === "success") {
-        return;
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const handleSubmitAlert = (name) => {
+    alert(
+      `${name} nesaņems e-pastu, jo šī lapa ir daļa no Jura Baltača programmēšanas portfolio. Ja Tev interesē podkāsts, meklē 'Svarīgās detaļas' Spotify.`
+    );
   };
 
-  const handleEmailChange = (event) => {
-    const { value } = event.target;
-    setEmail(value);
-  };
-
-  const handleNameChange = (event) => {
-    const { value } = event.target;
-    setName(value);
-  };
-  // #TODO: Pielikt e-pasta validation.
   return (
-    <div>
-      <div className="footer__title">PIESAKIES JAUNUMIEM</div>
-      <div className="footer__paragraph">
-        Saņem jaunākās sērijas e-pastā. Nekāda spama!
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="form__input-wrapper">
-          <input
-            aria-label="vards"
-            name="fields[first_name]"
-            placeholder="Vārds"
-            type="text"
-            onChange={handleNameChange}
-            value={name}
-          />
+    <div className="pl-4">
+      <div className="font-black text-2xl md:mb-4">PIESAKIES JAUNUMIEM</div>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label htmlFor="name"></label>
+        <input
+          value={values.name}
+          onChange={handleChange}
+          id="name"
+          type="name"
+          placeholder="Vārds"
+          onBlur={handleBlur}
+          className="mt-2 pl-3 w-5/6 h-10 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
+        />
 
-          <input
-            aria-label="epasts"
-            name="email_address"
-            placeholder="E-pasts"
-            required
-            type="email"
-            onChange={handleEmailChange}
-            value={email}
-          />
-        </div>
-        <button className="form__subscribe-button">PIETEIKTIES</button>
+        {errors.name && touched.name && (
+          <p className="text-orange1 text-sm">{errors.name}</p>
+        )}
+        <label htmlFor="email"></label>
+        <input
+          value={values.email}
+          onChange={handleChange}
+          id="email"
+          type="email"
+          placeholder="E-pasts"
+          onBlur={handleBlur}
+          className="w-5/6 text-grey1 h-10 placeholder-grey4 focus:placeholder-opacity-0 mt-2"
+        />
+
+        {errors.email && touched.email && (
+          <p className="text-orange1 text-sm">{errors.email}</p>
+        )}
+
+        <button
+          onClick={() => handleSubmitAlert(values.name || "Anonīmais cilvēks")}
+          type="submit"
+          className="bg-orange1 mt-2 rounded-md font-bold transition duration-300 w-32 py-2 hover:bg-grey5"
+        >
+          PIETEIKTIES
+        </button>
       </form>
     </div>
   );
 };
-
-export default SubscribeForm;
+export default BasicForm;
