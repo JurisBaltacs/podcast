@@ -2,6 +2,7 @@ import React from "react";
 import Facebook from "../assets/facebook";
 import Twitter from "../assets/twitter";
 import Youtube from "../assets/youtube";
+import LinkedIn from "../assets/linkedin";
 
 const AboutFooter = () => {
   return (
@@ -35,6 +36,7 @@ const AboutFooter = () => {
         <Facebook />
         <Twitter />
         <Youtube />
+        <LinkedIn />
       </div>
     </div>
   );

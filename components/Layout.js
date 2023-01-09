@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import SDLogo from "../assets/sd-logo.png";
 import SDLogoSmall from "../assets/sd-logo-small.png";
 import Facebook from "../assets/facebook";
+import LinkedIn from "../assets/linkedin";
 import Twitter from "../assets/twitter";
 import Youtube from "../assets/youtube";
 import Cart from "../assets/cart";
@@ -98,6 +99,7 @@ export default function Layout({ children }) {
             <Facebook isTopMenu={isTopMenu} />
             <Twitter isTopMenu={isTopMenu} />
             <Youtube isTopMenu={isTopMenu} />
+            <LinkedIn isTopMenu={isTopMenu} />
           </div>
           <div>
             <Link href="/shoppingcart">
