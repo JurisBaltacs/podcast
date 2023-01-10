@@ -34,11 +34,12 @@ const EpisodePage = ({ uniqueEpisode, comments }) => {
         <div>
           <div className="md:float-right pl-6">
             <img className="rounded-lg w-[300px]" src={uniqueEpisode.image} />
-            <ReactAudioPlayer
-              src={uniqueEpisode.audio_preview_url}
-              controls
-              className="background: red"
-            />
+            <div className="mx-auto">
+              <ReactAudioPlayer
+                src={uniqueEpisode.audio_preview_url}
+                controls
+              />
+            </div>
           </div>
 
           <div className="text-3xl font-bold mb-8">{uniqueEpisode.name}</div>
