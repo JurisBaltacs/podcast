@@ -11,11 +11,11 @@ const EpisodeComponent = ({ episode, description, isSlider }) => {
   var classNames = require("classnames");
 
   return (
-    <div>
+    <div className="md:border-b-0 border-b-2">
       <Link href={"episode/" + episode.id}>
         <div className="relative">
           <div
-          // Only show episode duration when component is in Slider
+            // Only show episode duration when component is in Slider
             className={classNames(
               "flex bg-orange1 rounded-md text-white w-16 justify-center text-xs absolute bottom-4 left-[50%] transform -translate-x-1/2 z-10 transition-all duration-300 hover:bg-black1",
               { hidden: !isSlider }

@@ -14,7 +14,7 @@ const AboutFooter = () => {
         <br />
         Podkāstu 'Svarīgās detaļas'{" "}
         <a
-          className="underline underline-offset-2 transition-all duration-300 hover:text-white"
+          className="underline underline-offset-2 transition-all duration-300 active:text-white md:hover:text-white"
           href="https://open.spotify.com/show/2B4z0QYgLOsqYCEdPAHnxw?si=43c54ac6a59249c8"
           target="_blank"
         >
@@ -22,9 +22,9 @@ const AboutFooter = () => {
         </a>
         .
         <br />
-        Ja Gribi redzēt lapas kodu, diedies uz{" "}
+        Ja Gribi redzēt lapas kodu, dodies uz{" "}
         <a
-          className="underline underline-offset-2 transition-all duration-300 hover:text-white"
+          className="underline underline-offset-2 transition-all duration-300 active:text-white md:hover:text-white"
           href="https://github.com/JurisBaltacs/podcast"
           target="_blank"
         >
