@@ -8,7 +8,6 @@ import CommentFormComponent from "../../components/CommentFormComponent";
 
 const prisma = new PrismaClient();
 export async function getServerSideProps(context) {
-
   const { params } = context;
 
   const uniqueEpisode = await prisma.episode.findUnique({
@@ -31,9 +30,9 @@ export async function getServerSideProps(context) {
 const EpisodePage = ({ uniqueEpisode, comments }) => {
   return (
     <div className="flex justify-center pt-10">
-      <div className="w-[80%]">
+      <div className="w-[90%] md:w-[80%] mx-auto">
         <div>
-          <div className="float-right pl-6">
+          <div className="md:float-right pl-6">
             <img className="rounded-lg w-[300px]" src={uniqueEpisode.image} />
             <ReactAudioPlayer
               src={uniqueEpisode.audio_preview_url}
@@ -44,6 +43,7 @@ const EpisodePage = ({ uniqueEpisode, comments }) => {
 
           <div className="text-3xl font-bold mb-8">{uniqueEpisode.name}</div>
           <div
+            className="break-words"
             dangerouslySetInnerHTML={{
               __html: uniqueEpisode.html_description,
             }}

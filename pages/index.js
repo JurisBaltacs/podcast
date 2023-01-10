@@ -20,7 +20,7 @@ const HomeScreen = ({ episodes, blogPosts }) => {
   };
 
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="md:w-[80%] w-[90%] mx-auto">
       <div className="hidden md:block">
         <Slider episodes={episodes} />
       </div>

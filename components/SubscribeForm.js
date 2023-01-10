@@ -36,7 +36,7 @@ const BasicForm = () => {
           type="name"
           placeholder="Vārds"
           onBlur={handleBlur}
-          className="mt-2 pl-3 w-5/6 h-10 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
+          className="mt-2 pl-3 w-full h-10 text-grey1 placeholder-grey4 focus:placeholder-opacity-0"
         />
 
         {errors.name && touched.name && (
@@ -50,7 +50,7 @@ const BasicForm = () => {
           type="email"
           placeholder="E-pasts"
           onBlur={handleBlur}
-          className="w-5/6 text-grey1 h-10 placeholder-grey4 focus:placeholder-opacity-0 mt-2"
+          className="w-full text-grey1 h-10 placeholder-grey4 focus:placeholder-opacity-0 mt-2"
         />
 
         {errors.email && touched.email && (

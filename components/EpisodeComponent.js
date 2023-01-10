@@ -24,7 +24,7 @@ const EpisodeComponent = ({ episode, description, isSlider }) => {
             {millisToMinutesAndSeconds(episode.duration_ms)}
           </div>
           <img
-            className="w-[300px] rounded-md mx-auto block transition-all duration-300 hover:brightness-75"
+            className="w-[225px] md:w-[300px] rounded-md mx-auto block transition-all duration-300 hover:brightness-75"
             src={episode.image}
           />
         </div>
