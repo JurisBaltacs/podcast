@@ -64,7 +64,7 @@ const ItemDetails = ({ shopItem, selected }) => {
         <div className="flex justify-between">
           <div>
             {/* Map through attributes of items in the shop and pass the corresponding attribute to the AttributeComponent component*/}
-            {attributes.map((attribute, index) => {
+            {shopItem.attributes.map((attribute, index) => {
               if (attribute.id === "color") {
                 return (
                   <div key={index}>
