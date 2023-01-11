@@ -42,8 +42,8 @@ export default function Layout({ children }) {
   let totalQuantity = findQuantity();
 
   return (
-    <div>
-      <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6">
+    <div className="h-screen flex flex-col">
+      <div className="flex item-center justify-around items-center shadow-md h-10 py-8 mb-6 ">
         <Link href={"/"}>
           <Image
             src={SDLogo}
@@ -126,7 +126,9 @@ export default function Layout({ children }) {
         </div>
       </div>
       {children}
-      <Footer />
+      <div className="relative mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 }

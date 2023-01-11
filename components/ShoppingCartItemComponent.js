@@ -24,7 +24,10 @@ const ShoppingCartItemComponent = ({ item }) => {
   return (
     <div className="grid grid-cols-12 mb-4 border-b-[1px] first-of-type:border-t-[1px] first-of-type:pt-4 pb-4 h-72">
       <div className="flex col-start-3 col-end-7 lg:col-start-3 lg:col-end-6">
-        <img src={item.image} className="object-cover rounded-md" />
+        <img
+          src={item.image}
+          className="object-cover rounded-md max-w-[300px]"
+        />
         <div className="mr-6 flex flex-col justify-between items-center ml-4">
           <button
             className="w-8 h-8 border rounded-lg border-grey4 cursor-pointer flex justify-center items-center pb-1 text-2xl text-grey4"
