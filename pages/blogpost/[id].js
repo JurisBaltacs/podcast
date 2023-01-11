@@ -1,7 +1,6 @@
 import React from "react";
 import { PrismaClient } from "@prisma/client";
 import ReactMarkdown from "react-markdown";
-// import remarkGfm from "remark-gfm";
 
 const prisma = new PrismaClient();
 

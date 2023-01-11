@@ -23,6 +23,7 @@ const BlogPreviewComponent = () => {
         console.log(
           "Blog post API response failed validadtion. Expected fields are: body: string().required().min(3), createdAt: date().required(), id: number().required().integer().min(1), image: string().required().min(3), title: string().required().min(3),"
         );
+        setLoading(false); 
         setError("Bloga raksti nav pieejami");
         return;
       }

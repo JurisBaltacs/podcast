@@ -4,10 +4,10 @@ const About = () => {
   return (
     <div className="w-[80%] mx-auto">
       <div>
-        Mani sauc Juris. Šo mājaslapu es izveidoju kā daļu no sava
-        programmēšanas portfolio. Es septiņus gadus nostrādāju digitālajā
-        mārketingā un tad nolēmu kļūt par programmētāju. Programmēšanu apguvu
-        pašmācības ceļā. <br />
+        Mani sauc Juris Baltačs. Šo mājaslapu izveidoju kā daļu no sava
+        programmēšanas portfolio. Agrāk strādāju digitālajā mārketingā, tur
+        pavadīju septiņus gadus līdz nolēmu kļūt par programmētāju.
+        Programmēšanu apguvu pašmācības ceļā. <br />
         <br />
         <div className="flex md:flex-row flex-col">
           <div>
@@ -26,6 +26,18 @@ const About = () => {
             <li>Pirsma kā datubāzes interfeiss</li>
             <li>NextJS izvietots uz Vercel</li>
             <li> Tailwind stilam</li>
+            <li>
+              {" "}
+              Smalkāks skaidrojums par lapas funkcionalitāti un kodu,{" "}
+              <a
+                className="underline underline-offset-2 transition-all duration-300 active:text-orange1 md:hover:text-orange1"
+                href="https://youtu.be/jImYMEDLDho"
+                target="_blank"
+              >
+                šajā video
+              </a>
+              .
+            </li>
           </div>
         </div>
       </div>
@@ -37,7 +49,7 @@ const About = () => {
         mājaslapā ir pieejami tikai pirmie mirkļi no katras sērijas. Ja vēliedz
         dzirdēt sarunas,{" "}
         <a
-          className="underline underline-offset-2"
+          className="underline underline-offset-2 active:text-orange1 md:hover:text-orange1 transition-all duration-300"
           href="https://open.spotify.com/show/2B4z0QYgLOsqYCEdPAHnxw?si=43c54ac6a59249c8"
           target="_blank"
         >
