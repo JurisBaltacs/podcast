@@ -1,7 +1,6 @@
 import React from "react";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 
 const prisma = new PrismaClient();
 
@@ -13,9 +12,13 @@ export async function getStaticProps() {
 }
 
 const Blog = ({ blogPosts }) => {
+  var striptags = require("striptags");
+
   return (
     <div className="w-[90%] md:w-[80%] mx-auto">
       {blogPosts.map((post, title) => {
+        const postBody = striptags(post.body);
+        console.log("postBody", postBody.slice(0, 10));
         return (
           <div
             key={title}
@@ -23,15 +26,15 @@ const Blog = ({ blogPosts }) => {
           >
             <Link href={"/blogpost/" + post.id}>
               <div className="flex h-40 md:h-44">
-                <div className="min-w-[300px] rounded-l-md overflow-hidden transition-all duration-300 group-hover:brightness-75 cursor-pointer hidden md:block">
+                <div className="max-w-[300px] rounded-l-md overflow-hidden transition-all duration-300 group-hover:brightness-75 cursor-pointer hidden md:block">
                   <img src={post.image} />
                 </div>
                 <div className="ml-4">
                   <div className="font-bold leading-tight text-gray-900 text-2xl line-clamp-2">
                     {post.title}
                   </div>
-                  <div className="line-clamp-[4] md:line-clamp-[3] pr-4 mt-2 ">
-                    <ReactMarkdown>{post.body}</ReactMarkdown>
+                  <div className="pr-4 mt-2">
+                    {postBody.slice(0, 150)}...
                   </div>
                 </div>
               </div>

@@ -9,6 +9,7 @@ const EpisodeComponent = ({ episode, description, isSlider }) => {
     return minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
   };
   var classNames = require("classnames");
+  
 
   return (
     <div className="md:border-b-0 border-b-2">
