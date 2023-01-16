@@ -38,6 +38,17 @@ const About = () => {
               </a>
               .
             </li>
+            <li>
+              Lapas{" "}
+              <a
+                className="underline underline-offset-2 transition-all duration-300 active:text-orange1 md:hover:text-orange1"
+                href="https://github.com/JurisBaltacs/podcast"
+                target="_blank"
+              >
+                kods GitHub
+              </a>
+              .
+            </li>
           </div>
         </div>
       </div>

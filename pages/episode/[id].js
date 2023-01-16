@@ -1,9 +1,6 @@
 import React from "react";
 import { PrismaClient } from "@prisma/client";
 import ReactAudioPlayer from "react-audio-player";
-import Facebook from "../../assets/facebook";
-import Twitter from "../../assets/twitter";
-import Youtube from "../../assets/youtube";
 import CommentFormComponent from "../../components/CommentFormComponent";
 
 const prisma = new PrismaClient();
@@ -49,18 +46,9 @@ const EpisodePage = ({ uniqueEpisode, comments }) => {
               __html: uniqueEpisode.html_description,
             }}
           ></div>
-
-          <br />
-          <div className="mb-4">Baudi un dalies!</div>
-          <div className="flex space-x-4">
-            <Facebook />
-            <Twitter />
-            <Youtube />
-          </div>
           <br />
           <div>
             <div className="text-2xl font-bold mb-8">Komentāri</div>
-
             <div>
               <CommentFormComponent uniqueEpisode={uniqueEpisode} />
               <div className="bg-gray-50 rounded-lg">
